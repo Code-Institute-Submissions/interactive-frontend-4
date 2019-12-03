@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="sources/css/style.css">
+    <link rel="stylesheet" href="sources/css/style.css" type="text/css">
+    <script type="text/javascript" src="sources/js/zombomb.js"></script>
     <title>Zombomb</title>
 </head>
 
-<body>
+<body onload="startGame()">
     <h1 class="text-muted">Zombomb</h1>
-    <canvas id="zombomb" width="350" height="620" class="game-background"></canvas>
-    <script src="sources/js/zombomb.js"></script>
+    <button onmousedown="accelerate(-0.2)" onmouseup="accelerate(0.05)">ACCELERATE</button>
 
     <!---------------------------------Boostrap JavaScript-->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

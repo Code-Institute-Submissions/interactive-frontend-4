@@ -18,3 +18,9 @@ This are the things we need to have on the game:
 * Speech Bubbles with instructions how to play and hints
 * Keys/arrows to navigate and shoot
 * Game Levels
+
+
+
+### Testing
+
+My testing was constant from the beginning of my project. The first task was to make sure all files were properly connected my copying a simple javascript games from w3schools.com https://www.w3schools.com/graphics/tryit.asp?filename=trygame_default_gravity
