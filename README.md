@@ -19,7 +19,10 @@ This are the things we need to have on the game:
 * Keys/arrows to navigate and shoot
 * Game Levels
 
+### UX Design
 
+**Canvas**
+One of the first problem is to make the canvas responsive, I've got that by leaving the canvas on the index.html file but the functions of the game are not working. With the same example of game I made the game work and it's fully responsive I added a `class` for `canvas` element. 
 
 ### Testing
 
