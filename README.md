@@ -24,6 +24,10 @@ This are the things we need to have on the game:
 **Canvas**
 One of the first problem is to make the canvas responsive, I've got that by leaving the canvas on the index.html file but the functions of the game are not working. With the same example of game I made the game work and it's fully responsive I added a `class` for `canvas` element. 
 
+**Checklist for the Zombie component**
+* Must be a SVG or Gif graphic
+* Icon that it's easy to recognise
+
 ### Testing
 
 My testing was constant from the beginning of my project. The first task was to make sure all files were properly connected my copying a simple javascript games from w3schools.com https://www.w3schools.com/graphics/tryit.asp?filename=trygame_default_gravity
