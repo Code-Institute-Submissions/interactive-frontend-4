@@ -1,26 +1,13 @@
-var myGamePiece;
+var zombomb = new Image();
+zombomb.src = "sources/img/zombie.png";
 
 function startGame() {
-    myGameArea.start();
-    myGamePiece = new component(50, 50, "zombie.gif", 10, 100, "image");
-}
+    var canvas = document.getElementById('gameArea');
+    if (canvas.getContext) {
+        var ctx = canvas.getContext('2d');
 
-var myGameArea = {
-    canvas: document.createElement("canvas"),
-    start: function() {
-        this.canvas.width = 480;
-        this.canvas.height = 270;
-        this.context = this.canvas.getContext("2d");
-        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+        ctx.fillRect(30, 30, 50, 50);
+        ctx.startGame(zombomb, 15, 50);
+
     }
-}
-
-function component(width, height, color, x, y) {
-    this.width = width;
-    this.height = height;
-    this.x = x;
-    this.y = y;
-    ctx = myGameArea.context;
-    ctx.fillStyle = color;
-    ctx.fillRect(this.x, this.y, this.width, this.height);
 }

@@ -31,3 +31,5 @@ One of the first problem is to make the canvas responsive, I've got that by leav
 ### Testing
 
 My testing was constant from the beginning of my project. The first task was to make sure all files were properly connected my copying a simple javascript games from w3schools.com https://www.w3schools.com/graphics/tryit.asp?filename=trygame_default_gravity
+
+I'm now checking that my code works too by simply `alert("hey!");` as the first line of my code.
