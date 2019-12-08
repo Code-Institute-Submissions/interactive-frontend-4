@@ -10,19 +10,21 @@ I came across a very useful library https://www.pixijs.com/ this is an open sour
 ### Requirements of the game
 
 **What's the aim of the game?**
-To kill the mama-queen bird and her flock using the zoombies we have as pandemic on the planet
+To kill the mama-queen bird and her flock using the zoombies we have as pandemic on the planet.
 
 **Game's Checklist**
 This are the things we need to have on the game:
 * A canvas where the game is played (2D)
 * Speech Bubbles with instructions how to play and hints
 * Keys/arrows to navigate and shoot
-* Game Levels
+* Game Score
 
 ### UX Design
 
 **Canvas**
-One of the first problem is to make the canvas responsive, I have got that by leaving the canvas on the index.html file but the functions of the game are not working. With the same example of game I made the game work and it's fully responsive I added a `class` for `canvas` element. 
+One of the first problem is to make the canvas responsive I added `class` for `canvas` element but it was stretching the image to the full width of the page making all graphics distorned.
+
+I have got that by leaving the canvas on the index.html file but the functions of the game are not working. With the same example of game I made the game work and it's fully responsive . 
 
 **Checklist for the Zombie component**
 * Must be a SVG or Gif graphic
