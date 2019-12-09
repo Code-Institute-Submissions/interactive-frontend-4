@@ -30,6 +30,10 @@ I have got that by leaving the canvas on the index.html file but the functions o
 * Must be a SVG or Gif graphic
 * Icon that it's easy to recognise
 
+### Code Structure
+In order to achieve and understand the different part componing this project, I based my coding on this video tutorial https://www.youtube.com/watch?v=L07i4g-zhDA
+
+
 ### Testing
 
 My testing was constant from the beginning of my project. The first task was to make sure all files were properly connected my copying a simple javascript games from w3schools.com https://www.w3schools.com/graphics/tryit.asp?filename=trygame_default_gravity
@@ -42,3 +46,6 @@ I'm now checking that my code works too by simply `alert("hey!");` as the first 
 
 **Primary game structure**
 https://www.freecodecamp.org/news/javascript-functions-af6f9186a553/
+
+**For animation guides**
+https://stackoverflow.com/questions/4422293/rotate-an-image-around-its-center-in-canvas/44964567#44964567
