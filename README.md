@@ -47,5 +47,8 @@ I'm now checking that my code works too by simply `alert("hey!");` as the first 
 **Primary game structure**
 https://www.freecodecamp.org/news/javascript-functions-af6f9186a553/
 
+**My Coding structure**
+https://github.com/CodeExplainedRepo/FlappyBird-JavaScript/blob/master/flappyBird.js
+
 **For animation guides**
 https://stackoverflow.com/questions/4422293/rotate-an-image-around-its-center-in-canvas/44964567#44964567

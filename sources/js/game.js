@@ -12,15 +12,12 @@ y = 120;
 
 //Canvas Section
 function draw() {
-
-
-
     var canvas = document.getElementById('canvas');
     var ctx = canvas.getContext('2d');
     var img = new Image();
 
     var ang = 0; //angle
-    var fps = 1000 / 25; //number of frames per sec
+    var fps = 800 / 8; //number of frames per sec
     img.onload = function() { //on image load do the following stuff
         canvas.width = 500; //Any width
         canvas.height = 500; //Any height
