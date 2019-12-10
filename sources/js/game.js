@@ -16,6 +16,8 @@ function draw() {
     var ctx = canvas.getContext('2d');
     var img = new Image();
 
+
+
     var ang = 0; //angle
     var fps = 800 / 8; //number of frames per sec
     img.onload = function() { //on image load do the following stuff
@@ -37,6 +39,23 @@ function draw() {
     };
 
     img.src = "sources/img/zombie.gif"; //img
+
+    document.onkeydown = function(e) {
+        switch (e.keyCode) {
+            case 37:
+                alert('left');
+                break;
+            case 38:
+                alert('up');
+                break;
+            case 39:
+                alert('right');
+                break;
+            case 40:
+                alert('down');
+                break;
+        }
+    };
 
 }
 
