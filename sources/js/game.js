@@ -1,6 +1,7 @@
 // Upload images
 var background = new Image();
 var zombomb = new Image();
+var img = new Image();
 
 background.src = "sources/img/canvas.jpg";
 zombomb.src = "sources/img/zombie.gif";
@@ -14,10 +15,9 @@ y = 120;
 function draw() {
     var canvas = document.getElementById('canvas');
     var ctx = canvas.getContext('2d');
-    var img = new Image();
 
 
-
+    // Taken from stackoverflow.com 
     var ang = 0; //angle
     var fps = 800 / 8; //number of frames per sec
     img.onload = function() { //on image load do the following stuff
@@ -37,25 +37,35 @@ function draw() {
 
         }, fps);
     };
+    // Arrow key controllers
+    img.src = "sources/img/human.gif"; //img
 
-    img.src = "sources/img/zombie.gif"; //img
+    function moveup() {
+        myGamePiece.speedY = -1;
+    }
 
-    document.onkeydown = function(e) {
-        switch (e.keyCode) {
-            case 37:
-                alert('left');
-                break;
-            case 38:
-                alert('up');
-                break;
-            case 39:
-                alert('right');
-                break;
-            case 40:
-                alert('down');
-                break;
-        }
-    };
+    function movedown() {
+        myGamePiece.speedY = 1;
+    }
+
+    function moveleft() {
+        myGamePiece.speedX = -1;
+    }
+
+    function moveright() {
+        myGamePiece.speedX = 1;
+    }
+
+    function clearmove() {
+        myGamePiece.speedX = 0;
+        myGamePiece.speedY = 0;
+    }
+    ctx.drawImage(zombomb, 10, 10, 50, 50);
+
+    // Zombomb image
+
+
+
 
 }
 
