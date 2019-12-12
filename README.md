@@ -42,6 +42,14 @@ I'm now checking that my code works too by simply `alert("hey!");` as the first 
 
 I want this testing section to be a journal of my debugging practices. I'm finding hard at the moment to debug with Jasmine. I'm using Chrome DevTools and https://developer.mozilla.org/ to find problem on my syntax.
 
+One of the first problems that I'm having is to make an image active on the game getting the following error:
+
+>Cannot read property 'getContext' of null
+
+I was trying to use a component to make this component as an object but I read on developers mozilla :
+
+> Warning: This object is only intended for code running with chrome privileges. Exposing the object to regular web code was a mistake. If you use this object on your web page, your site might break at any time! In current versions of Firefox only a few interfaces required for compatibility are still accessible. Don't use Components!
+
 
 
 ### References
