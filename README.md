@@ -33,6 +33,8 @@ I have got that by leaving the canvas on the index.html file but the functions o
 ### Code Structure
 In order to achieve and understand the different part componing this project, I based my coding on this video tutorial https://www.youtube.com/watch?v=L07i4g-zhDA
 
+To make the player active, I have to call a function within the canvas using this player/user as object with a function to rotate and shoot to the target.
+
 
 ### Testing
 

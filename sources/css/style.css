@@ -3,5 +3,9 @@ body {
 }
 
 canvas {
-    border: #005580;
+    background-color: #005580;
+}
+
+#zombomb {
+    position: absolute;
 }
