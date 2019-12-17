@@ -23,15 +23,13 @@ function draw() {
 
     //functions for movements
 
-    function moveleft() {
-        shot.speedX -= 1;
-    }
 
-    function moveright() {
-        shot.speedX += 1;
-    }
 
 }
+
+$("#move-left")
+$("#move-right")
+
 
 
 

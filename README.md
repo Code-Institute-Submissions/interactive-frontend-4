@@ -7,7 +7,7 @@ This is a game that uses zoombies as bombs or granades to kill giant birds which
 
 I came across a very useful library https://www.pixijs.com/ this is an open source available to make stunning graphics. Another useful source is https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript which explains step by step how to get familiar with game development.
 
-### Requirements of the game
+### Requirements of the game 
 
 **What's the aim of the game?**
 To kill the mama-queen bird and her flock using the zoombies we have as pandemic on the planet.
@@ -18,6 +18,9 @@ This are the things we need to have on the game:
 * Speech Bubbles with instructions how to play and hints
 * Keys/arrows to navigate and shoot
 * Game Score
+
+**Game Responses**
+The player is able to rotate the war tank and shoot zombies to targets (birds).
 
 ### UX Design
 
