@@ -15,10 +15,10 @@ player.src = "sources/img/human.gif";
 function draw() {
     var canvas = document.getElementById('canvas');
     var ctx = canvas.getContext('2d');
-    canvas.width = 320;
-    canvas.height = 540;
+    canvas.width = 300;
+    canvas.height = 440;
     ctx.drawImage(shot, 50, 50);
-    ctx.drawImage(player, 155, 490);
+    ctx.drawImage(player, 155, 390);
 
 
     //functions for movements
