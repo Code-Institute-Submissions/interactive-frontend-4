@@ -24,13 +24,15 @@ function draw() {
     //functions for movements
 
     $(document).ready(function() {
-        $("move-right").click(function() {
+        $("#move-right").click(function() {
             $("player").animate({ "left": "+=50px" }, "slow");
         });
 
-        $("move-left").click(function() {
+        $("#move-left").click(function() {
             $("player").animate({ "left": "-=50px" }, "slow");
         });
     });
 
 }
+
+window.onload = draw;
