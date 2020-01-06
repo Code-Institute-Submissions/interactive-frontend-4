@@ -25,11 +25,11 @@ function draw() {
 
     $(document).ready(function() {
         $("#move-right").click(function() {
-            $("player").animate({ "left": "+=50px" }, "slow");
+            $(".player").animate({ "left": "+=50px" }, "slow");
         });
 
         $("#move-left").click(function() {
-            $("player").animate({ "left": "-=50px" }, "slow");
+            $(".player").animate({ "left": "-=50px" }, "slow");
         });
     });
 

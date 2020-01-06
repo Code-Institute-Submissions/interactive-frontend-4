@@ -11,3 +11,7 @@ canvas {
     position: relative;
     margin: 10px;
 }
+
+.player {
+    position: relative;
+}
