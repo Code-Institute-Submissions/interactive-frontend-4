@@ -1,4 +1,5 @@
 body {
+    position: absolute;
     margin: 2%;
 }
 
@@ -7,5 +8,6 @@ canvas {
 }
 
 #zombomb {
-    position: absolute;
+    position: relative;
+    margin: 10px;
 }

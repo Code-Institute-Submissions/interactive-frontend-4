@@ -23,15 +23,14 @@ function draw() {
 
     //functions for movements
 
+    $(document).ready(function() {
+        $("move-right").click(function() {
+            $("player").animate({ "left": "+=50px" }, "slow");
+        });
 
+        $("move-left").click(function() {
+            $("player").animate({ "left": "-=50px" }, "slow");
+        });
+    });
 
 }
-
-$("#move-left")
-$("#move-right")
-
-
-
-
-
-window.onload = draw;
