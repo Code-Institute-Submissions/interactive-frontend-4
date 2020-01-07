@@ -3,8 +3,10 @@ body {
     margin: 2%;
 }
 
-canvas {
+#map {
     background-color: #005580;
+    width: 400px;
+    height: 400px;
 }
 
 #zombomb {
@@ -12,6 +14,9 @@ canvas {
     margin: 10px;
 }
 
-.player {
-    position: relative;
+#player {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    background: #abc;
 }

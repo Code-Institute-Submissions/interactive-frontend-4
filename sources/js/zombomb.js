@@ -1,22 +1,8 @@
 // Upload images
-var zombomb = new Image();
-zombomb.src = "sources/img/zombie.gif";
+var background = new Image();
+var shot = new Image();
+var player = new Image();
 
-//var for components
-
-
-function startGame() {
-    var canvas = document.getElementById('gameArea');
-    var ctx = canvas.getContext('2d');
-    gameBomb = new component(zombomb, "image");
-
-    ctx.save();
-    ctx.rotate(0.17);
-    ctx.drawImage(zombomb, x, y);
-    ctx.restore();
-
-}
-
-gameBomb {
-
-}
+background.src = "sources/img/canvas.jpg";
+shot.src = "sources/img/zombie.gif";
+player.src = "sources/img/human.gif";
