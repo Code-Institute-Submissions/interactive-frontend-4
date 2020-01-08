@@ -1,21 +1,25 @@
 $(document).ready(function() {
 
-    var player = '<div id="player"></div>';
+    var player = '<div id="player"><img src="sources/img/human.gif"></div>';
 
     $("#map").append(player);
 
-    $(".btn1").click(function() {
-        $("#player").animate({ left: "-=50px" });
+    var mouseX = 0,
+        mouseY = 0;
+    $("#map").mousemove(function(e) {
+        mouseX = e.pageX;
+        mouseY = e.pageY;
     });
-    $(".btn2").click(function() {
-        $("#player").animate({ left: "+=50px" });
-    });
+
+    // cache the selector
+    var follower = $("#player");
+    var xp = 0,
+        yp = 0;
+    var loop = setInterval(function() {
+        // change 12 to alter damping higher is slower
+        xp += (mouseX - xp) / 12;
+        yp += (mouseY - yp) / 12;
+        follower.css({ left: xp, top: yp });
+
+    }, 30);
 });
-
-
-// Upload images
-var background = new Image();
-var shot = new Image();
-
-background.src = "sources/img/canvas.jpg";
-shot.src = "sources/img/zombie.gif";
