@@ -55,6 +55,10 @@ I was trying to use a component to make this component as an object but I read o
 
 > Warning: This object is only intended for code running with chrome privileges. Exposing the object to regular web code was a mistake. If you use this object on your web page, your site might break at any time! In current versions of Firefox only a few interfaces required for compatibility are still accessible. Don't use Components!
 
+>mousemove on player not working
+
+Thanks to the error notification on Google DevTools - Console I discovered that `mousemove` couldn't working because `funtions (e)` wasn't defined.
+
 
 
 ### References
