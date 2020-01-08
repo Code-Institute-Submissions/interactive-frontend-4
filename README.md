@@ -51,7 +51,7 @@ One of the first problems that I'm having is to make an image active on the game
 
 >Cannot read property 'getContext' of null
 
-I was trying to use a component to make this component as an object but I read on developers mozilla :
+I was trying to use a component to make this component as an object but I read on developers mozilla:
 
 > Warning: This object is only intended for code running with chrome privileges. Exposing the object to regular web code was a mistake. If you use this object on your web page, your site might break at any time! In current versions of Firefox only a few interfaces required for compatibility are still accessible. Don't use Components!
 
@@ -65,5 +65,16 @@ https://www.freecodecamp.org/news/javascript-functions-af6f9186a553/
 **My Coding structure**
 https://github.com/CodeExplainedRepo/FlappyBird-JavaScript/blob/master/flappyBird.js
 
-**For animation guides**
+https://www.freecodecamp.org/news/the-best-jquery-examples/
+
+**Animations**
 https://stackoverflow.com/questions/4422293/rotate-an-image-around-its-center-in-canvas/44964567#44964567
+
+https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_animation2
+
+**Jquery moving my character with mousemove**
+http://jsfiddle.net/88526/1/
+
+https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_event_mousemove
+
+https://www.w3schools.com/graphics/tryit.asp?filename=trygame_controllers_mouse
