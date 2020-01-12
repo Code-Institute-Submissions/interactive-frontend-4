@@ -63,6 +63,9 @@ Thanks to the error notification on Google DevTools - Console I discovered that 
 
 ### References
 
+**Understanding Jquery**
+https://www.tutorialrepublic.com/jquery-tutorial/
+
 **Primary game structure**
 https://www.freecodecamp.org/news/javascript-functions-af6f9186a553/
 
@@ -77,6 +80,10 @@ https://stackoverflow.com/questions/4422293/rotate-an-image-around-its-center-in
 https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_animation2
 
 **Jquery moving my character with mousemove**
+https://www.w3schools.com/jquery/event_mouseover.asp
+
+
+
 http://jsfiddle.net/88526/1/
 
 https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_event_mousemove
