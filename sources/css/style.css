@@ -6,20 +6,19 @@ body {
 #gameArea {
     background-color: #005580;
     width: 400px;
-    height: 400px;
+    height: 500px;
 }
 
 #zombomb {
-    margin-top: 50px;
+    margin-top: 500px;
     width: 50px;
     height: 50px;
     position: relative;
     margin: 10px;
-    z-index: 0;
 }
 
 #player {
-    position: absolute;
+    position: relative;
     width: 150px;
     height: 50px;
 }
@@ -30,4 +29,10 @@ body {
     -o-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
     transform: rotate(360deg);
+}
+
+.shoot {
+    transform: translateY(300px);
+    -webkit-transform: translateY(300px);
+    -moz-transform: translateY(300px);
 }
