@@ -11,7 +11,6 @@ $(document).ready(function() {
     })
 
     $("#gameArea").click(function(event) {
-        console.log('is working');
         $("#zombomb").addClass("shoot", 5000);
     });
 
