@@ -59,6 +59,9 @@ I was trying to use a component to make this component as an object but I read o
 
 Thanks to the error notification on Google DevTools - Console I discovered that `mousemove` couldn't working because `funtions (e)` wasn't defined.
 
+>Debug of my code
+Finally I understood that I can use `console.log` inside a `function` to see if it's working what you're trying to do. ![DevTools marking errors](sources/readme-links/debug-example1.png) ![Console clear and working properly](sources/readme-links/debug-solution1.png)
+
 
 
 ### References

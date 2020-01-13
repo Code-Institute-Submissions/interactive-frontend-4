@@ -10,9 +10,9 @@ $(document).ready(function() {
         $("#player").css({ left: event.pageX })
     })
 
-    $("#zombomb").click(function() {
-        console.log('is working')
-        $(this).toggle("bounce", { times: 3 }, "slow");
+    $("#gameArea").click(function(event) {
+        console.log('is working');
+        $("#zombomb").addClass("shoot", 5000);
     });
 
 });
