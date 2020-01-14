@@ -15,12 +15,16 @@ To kill the mama-queen bird and her flock using the zoombies we have as pandemic
 **Game's Checklist**
 This are the things we need to have on the game:
 * A canvas where the game is played (2D)
-* Speech Bubbles with instructions how to play and hints
+* Instructions how to play the game
 * Keys/arrows to navigate and shoot
 * Game Score
 
-**Game Responses**
+## Game Structure
 The player is able to rotate the war tank and shoot zombies to targets (birds).
+
+### Shooting
+To be able to shoot the zombies, I had to trigger an event on the "bullet" or `zombomb` in this case, to solve this, I decided to translate this `<div id="zombomb">` on Y coordinates and another `function` to call it back to the original position.
+
 
 ### UX Design
 
