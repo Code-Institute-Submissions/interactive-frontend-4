@@ -1,23 +1,23 @@
 $(document).ready(function() {
-
+    //Variables for components
     let player = '<div id="player"><img src="sources/img/human.gif"></div>';
     let zombomb = '<div id="zombomb"><img src="sources/img/zombie.png"></div>';
+    //Arythmetics
+
+
+
     $("#gameArea").append(player, zombomb);
 
     // Inspire on this answer on stackoverflow https://stackoverflow.com/questions/54680988/jquery-animate-a-div-character-in-a-game
     $("#gameArea").mousemove(function(event) {
-        $("#zombomb").css({ left: event.pageX })
-        $("#player").css({ left: event.pageX })
+        $("#zombomb").css({ left: event.pageX });
+        $("#player").css({ left: event.pageX });
     })
 
-    $("#gameArea").click(function(event) {
+    $("#gameArea").click(function() {
         $("#zombomb").addClass("shoot", 5000);
+        $("#zombomb").clone().appendTo("#gameArea");
     });
-
-    $("#gameArea").setTimeout(function(event) {
-        $("#zombomb").removeClass("shoot");
-    }, 300);
-
 });
 
 

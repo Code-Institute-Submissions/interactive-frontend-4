@@ -21,7 +21,6 @@ body {
     position: relative;
     width: 150px;
     height: 50px;
-    background-image: url('sources/img/human.gif');
 }
 
 .rotate {
@@ -33,7 +32,22 @@ body {
 }
 
 .shoot {
-    transform: translateY(300px);
+    transform: translateY(50px);
     -webkit-transform: translateY(300px);
     -moz-transform: translateY(300px);
+}
+
+
+/* SVG Styling*/
+
+.wallpaper {
+    position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    z-index: -1;
+}
+
+.st0 {
+    fill: none;
 }
