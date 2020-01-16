@@ -1,7 +1,7 @@
 $(document).ready(function() {
     //Variables for components
     let player = '<div id="player"><img src="sources/img/human.gif"></div>';
-    let zombomb = '<div id="zombomb"><img src="sources/img/zombie.png"></div>';
+    let zombomb = $("#zombomb");
     //Arythmetics
 
 
@@ -15,8 +15,9 @@ $(document).ready(function() {
     })
 
     $("#gameArea").click(function() {
-        //$("#zombomb").addClass("shoot", 5000);
-        $("#zombomb").clone().appendTo("#gameArea");
+        // $("#zombomb").addClass("shoot", 5000);
+        $(zombomb).animate({ "top": "-=50px" }, 4000, "linear");
+
     });
 });
 
