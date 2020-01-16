@@ -15,7 +15,7 @@ $(document).ready(function() {
     })
 
     $("#gameArea").click(function() {
-        $("#zombomb").addClass("shoot", 5000);
+        //$("#zombomb").addClass("shoot", 5000);
         $("#zombomb").clone().appendTo("#gameArea");
     });
 });

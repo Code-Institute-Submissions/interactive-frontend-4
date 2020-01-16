@@ -66,7 +66,7 @@ Thanks to the error notification on Google DevTools - Console I discovered that 
 >Debug of my code
 Finally I understood that I can use `console.log` inside a `function` to see if it's working what you're trying to do. ![DevTools marking errors](sources/readme-links/debug-example1.png) ![Console clear and working properly](sources/readme-links/debug-solution1.png)
 
-
+I now encountered a problem. Using a simple option in Jquery to clone my `#bullet` on the game area and this was genereting a new `div` on my HTML file every time a click was triggered. ![DevTools showing new divs created](sources/readme-link/cloning-div.jpg)
 
 ### References
 

@@ -1,12 +1,21 @@
+/* -------------------general styling  -------------*/
+
 body {
     position: absolute;
     margin: 2%;
 }
 
+#logo {
+    width: 100%;
+    height: 100%;
+    display: inline;
+}
+
 #gameArea {
     background-color: #005580;
-    width: 400px;
-    height: 500px;
+    width: 100%;
+    height: 100%;
+    margin: 0;
 }
 
 #zombomb {
@@ -33,21 +42,23 @@ body {
 
 .shoot {
     transform: translateY(50px);
-    -webkit-transform: translateY(300px);
-    -moz-transform: translateY(300px);
+    -webkit-transform: translateY(50px);
+    -moz-transform: translateY(50px);
+}
+
+.shoot:hover {
+    -webkit-transition: translate 2s;
+    /* Safari prior 6.1 */
+    transition: translate 2s;
 }
 
 
 /* SVG Styling*/
 
-.wallpaper {
-    position: center top;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-    z-index: -1;
+.st0 {
+    fill: #98FF47;
 }
 
-.st0 {
+.st1 {
     fill: none;
 }
