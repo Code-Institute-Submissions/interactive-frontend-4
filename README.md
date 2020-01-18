@@ -20,7 +20,7 @@ This are the things we need to have on the game:
 * Game Score
 
 ## Game Structure
-The player `#tank` is able to shoot zombies to targets (birds).
+The player `#tank` is able to shoot zombies to targets (birds). To control the action area I used `overflow: hidden;` on the body's CSS to make sure the action stays inside this game window or `#gameArea` in this case.
 
 ### Shooting
 To be able to shoot the zombies, I had to trigger an event on the "bullet" or `zombomb` in this case, to solve this, I decided to translate this `<div id="zombomb">` on Y coordinates and another `function` to call it back to the original position.
