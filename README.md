@@ -3,7 +3,7 @@
 ### Second Milestone Project, Code Institute by Kervin Arias
 
 What's this all about?
-This is a game that uses zoombies as bombs or granades to kill giant birds which are attacking the planet. I've got my inspiration from this article https://github.com/syigzaw/Space-Shooter/blob/master/SpaceShooter.js
+This is a game that uses zoombies as bombs or granades to kill giant birds which are attacking the planet. I've got my inspiration from this game https://github.com/syigzaw/Space-Shooter/blob/master/SpaceShooter.js
 
 I came across a very useful library https://www.pixijs.com/ this is an open source available to make stunning graphics. Another useful source is https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript which explains step by step how to get familiar with game development.
 
@@ -20,7 +20,7 @@ This are the things we need to have on the game:
 * Game Score
 
 ## Game Structure
-The player is able to rotate the war tank and shoot zombies to targets (birds).
+The player `#tank` is able to shoot zombies to targets (birds).
 
 ### Shooting
 To be able to shoot the zombies, I had to trigger an event on the "bullet" or `zombomb` in this case, to solve this, I decided to translate this `<div id="zombomb">` on Y coordinates and another `function` to call it back to the original position.
@@ -79,6 +79,10 @@ I had to create a `var` from my `<div id"#">` and animate this object.
 **Understanding Jquery, SVG, etc**
 https://www.tutorialrepublic.com/jquery-tutorial/
 https://css-tricks.com/tag/svg/
+
+**Shooting functions**
+https://www.w3schools.com/jquery/eff_animate.asp
+http://www.gobiznow.com/jquery-animation-and-effect-4.html
 
 **Primary game structure**
 
