@@ -16,9 +16,11 @@ $(document).ready(function() {
 
     $("#gameArea").click(function() {
         // $("#zombomb").addClass("shoot", 5000);
-        $(zombomb).animate({ "top": "-=50px" }, 200, "swing");
-
+        $(zombomb).animate({ "top": "-=200px" }, 200, "swing", function() { $(this).removeAttr('style'); });
     });
+
+
+
 });
 
 

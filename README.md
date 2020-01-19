@@ -95,8 +95,8 @@ https://www.freecodecamp.org/news/the-best-jquery-examples/
 
 **Animations**
 https://stackoverflow.com/questions/4422293/rotate-an-image-around-its-center-in-canvas/44964567#44964567
-
 https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_animation2
+https://stackoverflow.com/questions/25409023/ how-to-restart-reset-jquery-animation
 
 **Jquery moving my character with mousemove**
 https://www.w3schools.com/jquery/event_mouseover.asp
