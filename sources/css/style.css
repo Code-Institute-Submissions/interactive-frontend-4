@@ -8,6 +8,9 @@ body {
     width: 80px;
 }
 
+
+/* -------------------  GAME COMPONENTS  -------------*/
+
 #gameArea {
     background-color: #005580;
     width: 100%;
@@ -27,6 +30,13 @@ body {
     position: absolute;
     bottom: 0px;
     margin-left: -50px;
+}
+
+.birdEnemies {
+    width: 70px;
+    height: 100px;
+    background-color: peachpuff;
+    position: fixed;
 }
 
 .rotate {
