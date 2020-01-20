@@ -73,6 +73,9 @@ I now encountered a problem. Using a simple option in Jquery to clone my `#bulle
  https://www.sitepoint.com/guide-jquery-animate-method/
 I had to create a `var` from my `<div id"#">` and animate this object.
 
+>Horizontal Scroll active, some margins off.
+Using DevTools - CSS Grd Inspector I figured out that my game area had set `position: absolute;`, removed and it's respecting the gridd on different devices now.  
+
 
 ### References
 
