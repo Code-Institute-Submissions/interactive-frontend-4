@@ -74,24 +74,28 @@ I now encountered a problem. Using a simple option in Jquery to clone my `#bulle
 I had to create a `var` from my `<div id"#">` and animate this object.
 
 >Horizontal Scroll active, some margins off.
-Using DevTools - CSS Grd Inspector I figured out that my game area had set `position: absolute;`, removed and it's respecting the gridd on different devices now.  
+Using DevTools - CSS Grd Inspector I figured out that my game area had set `position: absolute;`, removed and it's respecting the grid on different devices now.  
 
 
 ### References
 
+I based my bird enemies on this illustration: https://www.deviantart.com/isnevertimeatall/art/Zombie-bird-26385180
+
 **Understanding Jquery, SVG, etc**
 https://www.tutorialrepublic.com/jquery-tutorial/
+
 https://css-tricks.com/tag/svg/
 
 **Shooting functions**
 https://www.w3schools.com/jquery/eff_animate.asp
+
 http://www.gobiznow.com/jquery-animation-and-effect-4.html
 
 **Primary game structure**
 
 https://www.freecodecamp.org/news/javascript-functions-af6f9186a553/
 
-**My Coding structure**
+**My Coding Structure**
 https://github.com/CodeExplainedRepo/FlappyBird-JavaScript/blob/master/flappyBird.js
 
 https://www.freecodecamp.org/news/the-best-jquery-examples/
