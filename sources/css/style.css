@@ -34,7 +34,6 @@ body {
 .birdEnemies {
     width: 70px;
     height: 100px;
-    background-color: peachpuff;
     position: fixed;
 }
 
