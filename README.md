@@ -3,27 +3,32 @@
 ### Second Milestone Project, Code Institute by Kervin Arias
 
 What's this all about?
-This is a game that uses zoombies as bombs or granades to kill giant birds which are attacking the planet. I've got my inspiration from this game https://github.com/syigzaw/Space-Shooter/blob/master/SpaceShooter.js
+This is a game that uses zoombies as bombs or granades to kill giant birds which are attacking the planet. I've got my inspiration from this game 
 
 I came across a very useful library https://www.pixijs.com/ this is an open source available to make stunning graphics. Another useful source is https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript which explains step by step how to get familiar with game development.
 
 ### Requirements of the game 
 
 **What's the aim of the game?**
-To kill the mama-queen bird and her flock using the zoombies we have as pandemic on the planet.
+To kill a flock of cannibal deadbirds using the zoombies that we have as pandemic on the planet.
 
 **Game's Checklist**
 This are the things we need to have on the game:
 * A canvas where the game is played (2D)
 * Instructions how to play the game
-* Keys/arrows to navigate and shoot
-* Game Score
+* Player and bullet 
+* Game Information Architecture 
 
 ## Game Structure
+To understand the network tree structure, I based my game on this work: https://github.com/syigzaw/Space-Shooter/blob/master/SpaceShooter.js, after that 
+
 The `#player` is able to shoot zombies to targets (birds). To control the action area I used `overflow: hidden;` on the body's CSS to make sure the action stays inside this game window or `#gameArea` in this case.
 
 ### Shooting
 To be able to shoot the zombies, I had to trigger an event on the "bullet" or `zombomb` in this case, to solve this, I decided to translate this `<div id="zombomb">` on Y coordinates and another `function` to call it back to the original position. This was achieved with `animate` and the call back function to reset the animation.
+
+### Collision as your weapon
+Now it's time to kill some birds, I understand that if I'm making the 2 components to collide for that we need to creat the 2D axils
 
 
 ### UX Design
@@ -34,7 +39,7 @@ One of the first problem is to make the canvas responsive I added `class` for `c
 I have got that by leaving the canvas on the index.html file but the functions of the game are not working. With the same example of game I made the game work and it's fully responsive . 
 
 **Checklist for the Zombie component**
-* Must be a SVG or Gif graphic
+* Must be a SVG or PNG graphic
 * Icon that it's easy to recognise
 
 ### Code Structure

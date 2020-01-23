@@ -22,15 +22,36 @@ $(document).ready(function() {
         // CODE FOR TESTING Classes $("#zombomb").addClass("shoot", 5000);
 
         // Shoot the zombies
-        $(zombomb).animate({ "top": "-=400px" }, 200, "swing", function() { $(this).removeAttr('style'); });
+        $(zombomb).animate({ "top": "-=500px" }, 200, "swing", function() { $(this).removeAttr('style') }, collision);
     });
 
     setInterval(function() {
         $(birdEnemies).css({
             top: Math.random() * ($(window).height() - $(birdEnemies).height()) + 'px',
             left: Math.random() * ($(window).width() - $(birdEnemies).width()) + 'px'
-        })
+        }, collision)
     }, 700);
+
+
+    //   Collision between player and zombomb
+
+    function collision(zombomb, birdEnemies) {
+        var x1 = zombomb.offset().left;
+        var y1 = zombomb.offset().top;
+        var h1 = zombomb.outerHeight(true);
+        var w1 = zombomb.outerWidth(true);
+        var b1 = y1 + h1;
+        var r1 = x1 + w1;
+        var x2 = birdEnemies.offset().left;
+        var y2 = birdEnemies.offset().top;
+        var h2 = birdEnemies.outerHeight(true);
+        var w2 = birdEnemies.outerWidth(true);
+        var b2 = y2 + h2;
+        var r2 = x2 + w2;
+
+        if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) return false;
+        return true;
+    }
 
 });
 
