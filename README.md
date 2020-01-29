@@ -28,7 +28,7 @@ The `#player` is able to shoot zombies to targets (birds). To control the action
 To be able to shoot the zombies, I had to trigger an event on the "bullet" or `zombomb` in this case, to solve this, I decided to translate this `<div id="zombomb">` on Y coordinates and another `function` to call it back to the original position. This was achieved with `animate` and the call back function to reset the animation.
 
 ### Collision as your weapon
-Now it's time to kill some birds, I understand that if I'm making the 2 components to collide for that we need to creat the 2D axils
+Now it's time to kill some birds, I understand that if I'm making the 2 components to collide for that we need to creat the 2D axis.
 
 
 ### UX Design
