@@ -2,15 +2,14 @@
 ### Interactive Frontend Development
 ### Second Milestone Project, Code Institute by Kervin Arias
 
-What's this all about?
-This is a game that uses zoombies as bombs or granades to kill giant birds which are attacking the planet. I've got my inspiration from this game 
+**What's the aim of the game?**
+To kill a flock of cannibal deadbirds using the zombies that we have as pandemic on the planet. 
 
 I came across a very useful library https://www.pixijs.com/ this is an open source available to make stunning graphics. Another useful source is https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript which explains step by step how to get familiar with game development.
 
-### Requirements of the game 
+In order to achieve the game's best performance it was important to use game engine APIs such as PixiJS.
 
-**What's the aim of the game?**
-To kill a flock of cannibal deadbirds using the zoombies that we have as pandemic on the planet.
+### Requirements of the game 
 
 **Game's Checklist**
 This are the things we need to have on the game:
