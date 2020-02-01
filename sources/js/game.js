@@ -1,21 +1,15 @@
-// Setting my game area
+const canvas = document.getElementById('gameArea');
 
-let app = new PIXI.Application({
+const app = new PIXI.Application({
+    view: canvas,
     width: window.innerWidth,
     height: window.innerHeight,
-    resolution: 1
 });
 
-document.body.appendChild(app.view);
-
-// Loading the game components
-PIXI.loader.add(["sources/img/zombie.png", "sources/img/player.png"]).load(setup);
-
-function setup() {
-    let player = new PIXI.Sprite(PIXI.loader.resources["sources/img/player.png"].texture);
-    let zombomb = new PIXI.Sprite(PIXI.loader.resources["sources/img/zombie.png"].texture);
-    player.x = app.screen.width / 2;
-    player.y = app.screen.height / 2;
-    player.anchor.x = 0.5;
-    app.stage.addChild(zombomb, player);
-}
+const texture = PIXI.Texture.from('sources/img/player.png');
+const player = new PIXI.Sprite(texture);
+player.x = app.renderer.width / 2;
+player.y = app.renderer.height / 2;
+player.anchor.x = 0.5;
+player.anchor.y = 0.5;
+app.stage.addChild(player);

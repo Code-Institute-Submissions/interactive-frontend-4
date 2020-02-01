@@ -15,11 +15,14 @@ In order to achieve the game's best performance it was important to use game eng
 This are the things we need to have on the game:
 * A canvas where the game is played (2D)
 * Instructions how to play the game
-* Player and bullet 
-* Game Information Architecture 
+* Game Components 
+* Game Engine or API 
 
 ## Game Structure
-To understand the network tree structure, I based my game on this work: https://github.com/syigzaw/Space-Shooter/blob/master/SpaceShooter.js, after that 
+The first step was to get familiar with the game engine. It was a useful task to get familiar with the UNIX command line and being able to set up a localhost. 
+
+My next step was to get familiar with Sprites which are large files with all images that you're using in your game. The creation of a JSON file as an atlas to find and cut the elemnt we're using without having to load all images as single instruction each time.
+* To generate my JSON file I used: https://www.codeandweb.com/free-sprite-sheet-packer
 
 The `#player` is able to shoot zombies to targets (birds). To control the action area I used `overflow: hidden;` on the body's CSS to make sure the action stays inside this game window or `#gameArea` in this case.
 
