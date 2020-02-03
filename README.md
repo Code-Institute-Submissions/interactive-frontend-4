@@ -56,6 +56,8 @@ My testing was constant from the beginning of my project. The first task was to 
 
 I'm now checking that my code works too by simply `alert("hey!");` as the first line of my code.
 
+To test PIXI.js functions I used its boilerplate platform online at: https://www.pixiplayground.com/#/edit
+
 I want this testing section to be a journal of my debugging practices. I'm finding hard at the moment to debug with Jasmine. I'm using Chrome DevTools and https://developer.mozilla.org/ to find problem on my syntax.
 
 One of the first problems that I'm having is to make an image active on the game getting the following error:
@@ -95,6 +97,7 @@ https://css-tricks.com/tag/svg/
 
 **Shooting functions**
 https://www.w3schools.com/jquery/eff_animate.asp
+http://proclive.io/shooting-tutorial/
 
 http://www.gobiznow.com/jquery-animation-and-effect-4.html
 

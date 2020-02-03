@@ -13,6 +13,7 @@ let stage = new PIXI.Container();
 let bg = PIXI.Texture.fromImage('sources/img/gameBackground.png');
 let texture = PIXI.Texture.fromImage('sources/img/player.png');
 let zombomb = PIXI.Texture.fromImage('sources/img/zombie.png');
+let enemie = PIXI.Texture.fromImage('sources/img/birdenemie.png');
 
 // calling the image for my player
 let player = new PIXI.Sprite(texture);
@@ -30,6 +31,7 @@ stage.addChild(background);
 
 stage.addChild(player);
 
+// Create the rotation with mouse
 stage.interactive = true;
 
 stage.on("mousedown", function(e) {
@@ -56,9 +58,18 @@ function rotateToPoint(mx, my, px, py) {
     let dist_Y = my - py;
     let dist_X = mx - px;
     let angle = Math.atan2(dist_Y, dist_X);
-    //let degrees = angle * 180/ Math.PI;
     return angle;
 }
+
+// Set enemies onto game area
+for (var i = 0; i < 10; i++) {
+    let birdEnemie = new PIXI.Sprite(enemie);
+    birdEnemie.position.x = Math.random() * renderer.width;
+    birdEnemie.position.y = Math.random() * renderer.height;
+    stage.addChild(birdEnemie);
+}
+
+
 
 // start animating
 animate();
@@ -66,13 +77,15 @@ animate();
 function animate() {
     requestAnimationFrame(animate);
 
-    // just for fun, let's rotate mr rabbit a little
+    // Player motion active and shooting
     player.rotation = rotateToPoint(renderer.plugins.interaction.mouse.global.x, renderer.plugins.interaction.mouse.global.y, player.position.x, player.position.y);
 
+    // Action for shooting zombies
     for (var b = bullets.length - 1; b >= 0; b--) {
         bullets[b].position.x += Math.cos(bullets[b].rotation) * bulletSpeed;
         bullets[b].position.y += Math.sin(bullets[b].rotation) * bulletSpeed;
     }
+
     // render the container
     renderer.render(stage);
 }

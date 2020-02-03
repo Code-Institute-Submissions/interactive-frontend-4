@@ -1,20 +1,23 @@
-describe("A suite", function() {
-    it("contains spec with an expectation", function() {
-        expect(true).toBe(true);
-    });
-});
+// Create the enemies
 
+describe(let numberOfBirds = 10,
+        spacing = 48,
+        xOffset = 150,
+        speed = 2,
+        direction = 1;
 
+    // Array to store the enemies
+    birdEnemies = [];
 
-
-
-// CODE FOR TESTING ---------
-//  var movePlayer = $("#player");
-//  var xp = 0,
-//      yp = 0;
-//   var loop = setInterval(function() {
-// change 12 to alter damping higher is slower
-//      xp += (mouseX - xp) / 12;
-//      yp += (mouseY - yp) / 12;
-//      movePlayer.css({ left: xp, top: yp });
-//      }, 500);
+    for (let i = 0; i < numberOfBirds; i++) {
+        let birdEnemie = new PIXI.Sprite(enemie);
+        let x = spacing * i + xOffset;
+        let y = randomInt(0, stage.height - birdEnemie.height);
+        birdEnemie.x = x;
+        birdEnemie.y = y;
+        birdEnemie.vy = spedd * direction;
+        direction *= -1;
+        birdEnemies.push(birdEnemie);
+        stage.addChild(birdEnemie)
+    }
+);
