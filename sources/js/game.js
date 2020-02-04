@@ -62,12 +62,15 @@ function rotateToPoint(mx, my, px, py) {
 }
 
 // Set enemies onto game area
-for (var i = 0; i < 10; i++) {
-    let birdEnemie = new PIXI.Sprite(enemie);
-    birdEnemie.position.x = Math.random() * renderer.width;
-    birdEnemie.position.y = Math.random() * renderer.height;
-    stage.addChild(birdEnemie);
-}
+let numberOfBirds = 7,
+    spacing = 48,
+    direction = 1;
+let birdEnemie = new PIXI.Sprite(enemie);
+let birdEnemieSpeed = 5;
+stage.addChild(birdEnemie);
+birdEnemies = [];
+
+
 
 
 
@@ -86,6 +89,12 @@ function animate() {
         bullets[b].position.y += Math.sin(bullets[b].rotation) * bulletSpeed;
     }
 
+    // Create random enemies
+    for (let i = 0; i < numberOfBirds; i++) {
+        birdEnemie.position.x = Math.random(birdEnemieSpeed) * renderer.width;
+        birdEnemie.position.y = Math.random(birdEnemieSpeed) * renderer.height;
+        birdEnemies.push(birdEnemie);
+    }
     // render the container
     renderer.render(stage);
 }
