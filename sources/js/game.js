@@ -18,16 +18,17 @@ let enemie = PIXI.Texture.fromImage('sources/img/birdenemie.png');
 // calling the image for my player
 let player = new PIXI.Sprite(texture);
 
+// calling the image for my background
+let background = new PIXI.Sprite(bg);
+stage.addChild(background);
+
 // center player's anchor point
 player.anchor.x = 0.5;
 player.anchor.y = 0.5;
 
-// move the sprite to the center of the screen
-player.position.x = 200;
-player.position.y = 150;
-
-let background = new PIXI.Sprite(bg);
-stage.addChild(background);
+// move the sprite to its position
+player.position.x = 150;
+player.position.y = 310;
 
 stage.addChild(player);
 
@@ -62,9 +63,7 @@ function rotateToPoint(mx, my, px, py) {
 }
 
 // Set enemies onto game area
-let numberOfBirds = 7,
-    spacing = 48,
-    direction = 1;
+let numberOfBirds = 7;
 let birdEnemie = new PIXI.Sprite(enemie);
 let birdEnemieSpeed = 5;
 stage.addChild(birdEnemie);
