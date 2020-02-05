@@ -65,9 +65,8 @@ function rotateToPoint(mx, my, px, py) {
 // Set enemies onto game area
 let numberOfBirds = 7;
 let birdEnemie = new PIXI.Sprite(enemie);
-let birdEnemieSpeed = 5;
 stage.addChild(birdEnemie);
-birdEnemies = [];
+let birdEnemies = [];
 
 
 
@@ -83,15 +82,15 @@ function animate() {
     player.rotation = rotateToPoint(renderer.plugins.interaction.mouse.global.x, renderer.plugins.interaction.mouse.global.y, player.position.x, player.position.y);
 
     // Action for shooting zombies
-    for (var b = bullets.length - 1; b >= 0; b--) {
+    for (let b = bullets.length - 1; b >= 0; b--) {
         bullets[b].position.x += Math.cos(bullets[b].rotation) * bulletSpeed;
         bullets[b].position.y += Math.sin(bullets[b].rotation) * bulletSpeed;
     }
 
     // Create random enemies
     for (let i = 0; i < numberOfBirds; i++) {
-        birdEnemie.position.x = Math.random(birdEnemieSpeed) * renderer.width;
-        birdEnemie.position.y = Math.random(birdEnemieSpeed) * renderer.height;
+        birdEnemie.position.x = Math.random() * renderer.width;
+        birdEnemie.position.y = Math.random() * renderer.height;
         birdEnemies.push(birdEnemie);
     }
     // render the container

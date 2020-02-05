@@ -83,7 +83,12 @@ I now encountered a problem. Using a simple option in Jquery to clone my `#bulle
 I had to create a `var` from my `<div id"#">` and animate this object.
 
 >Horizontal Scroll active, some margins off.
-Using DevTools - CSS Grd Inspector I figured out that my game area had set `position: absolute;`, removed and it's respecting the grid on different devices now.  
+Using DevTools - CSS Grd Inspector I figured out that my game area had set `position: absolute;`, removed and it's respecting the grid on different devices now. 
+
+>Can't control the speed from a Sprite
+I current problem that I'm encountering right now it's my lack of understanding where to iterate parameters like speed to the pixi js engine. PIXI JS has a very good boiler to play https://www.pixiplayground.com/#/edit/DsTc1Aq0848CTPQRAiW__
+
+https://github.com/pixijs/pixi.js/wiki/v5-Custom-Application-GameLoop
 
 
 ### References
