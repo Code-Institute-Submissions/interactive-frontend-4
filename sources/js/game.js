@@ -63,14 +63,11 @@ function rotateToPoint(mx, my, px, py) {
 }
 
 // Set enemies onto game area
-let numberOfBirds = 7;
+let numberOfBirds = 3;
+let birdSpeed = 0.02;
 let birdEnemie = new PIXI.Sprite(enemie);
 stage.addChild(birdEnemie);
 let birdEnemies = [];
-
-
-
-
 
 // start animating
 animate();
@@ -93,6 +90,8 @@ function animate() {
         birdEnemie.position.y = Math.random() * renderer.height;
         birdEnemies.push(birdEnemie);
     }
+
+
     // render the container
     renderer.render(stage);
 }
