@@ -63,11 +63,14 @@ function rotateToPoint(mx, my, px, py) {
 }
 
 // Set enemies onto game area
-let numberOfBirds = 3;
+let numberOfBirds = 7;
 let birdSpeed = 0.02;
 let birdEnemie = new PIXI.Sprite(enemie);
 stage.addChild(birdEnemie);
 let birdEnemies = [];
+
+
+
 
 // start animating
 animate();
@@ -89,6 +92,12 @@ function animate() {
         birdEnemie.position.x = Math.random() * renderer.width;
         birdEnemie.position.y = Math.random() * renderer.height;
         birdEnemies.push(birdEnemie);
+    }
+    // Collision detection
+    if (hitTestRectangle(bullets, birdEnemies)) {
+        message.text = "hit";
+    } else {
+        message.text = "No collision";
     }
 
 
