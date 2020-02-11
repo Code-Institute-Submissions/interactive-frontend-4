@@ -1,18 +1,17 @@
 //Parameters taken from this source to make emmiter to work https://github.com/pixijs/pixi-particles/blob/master/docs/examples/spaceshipDestruction.html
-
 new ParticleExample(
     // The image to use
     {
         spritesheet: "sources/img/birdPieces.json",
         art: [
-            /* "weaponPod",
-             "leftWing",
-             "rightEngine",
-             "hullFront",
-             "weaponPod",
-             "rightWing",
-             "hullRear",
-             "leftEngine"*/
+            "weaponPod",
+            "leftWing",
+            "rightEngine",
+            "hullFront",
+            "weaponPod",
+            "rightWing",
+            "hullRear",
+            "leftEngine"
         ]
     },
 

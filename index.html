@@ -21,12 +21,7 @@
 <body>
     <!-----------------------------------PixJs Library for the game-->
     <script src="sources/js/pixi.min.js"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/pixi-particles-latest@3.2.0/dist/pixi-particles.min.js"></script>
-
-    <!-- Game Script -->
-    <script src="sources/js/game.js"></script>
-
     <container>
         <div class="row">
             <div class="col-sm-4">
@@ -38,16 +33,22 @@
                 <h4>Use the mouse to spin the tank and click on it to shoot zombies!</h4>
                 <h4 class="text-mute">Keep shooting, sometimes they hide...</h4>
 
-                <canvas id="stage" width="400" height="400"></canvas>
+                <canvas id="stage"></canvas>
             </div>
         </div>
     </container>
     <footer>
     </footer>
-    <script src="sources/js/emmiterScript.js"></script>
+
 
     <!-------   FOR TESTING  <button class="btn1">Left</button>
     <button class="btn2">Right</button> ----------->
+
+    <!-- Game Script -->
+    <script src="sources/js/game.js"></script>
+
+    <!-- Particle Plugin to destroy enemy -->
+    <script src="sources/js/emmiterScript.js"></script>
 
 
 

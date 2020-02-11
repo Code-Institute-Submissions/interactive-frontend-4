@@ -217,7 +217,7 @@
             //bg is a 1px by 1px image
             bg.scale.x = canvas.width;
             bg.scale.y = canvas.height;
-            bg.tint = 0x000000;
+            /*bg.tint = 0x000000;*/
             stage.addChild(bg);
 
             stage.addChild(player);
