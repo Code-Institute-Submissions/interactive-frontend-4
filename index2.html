@@ -22,11 +22,6 @@
     <!-----------------------------------PixJs Library for the game-->
     <script src="sources/js/pixi.min.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/pixi-particles-latest@3.2.0/dist/pixi-particles.min.js"></script>
-
-    <!-- Game Script -->
-    <script src="sources/js/game.js"></script>
-
     <container>
         <div class="row">
             <div class="col-sm-4">
@@ -34,17 +29,42 @@
                 <h1 class="text-mute">Zombomb</h1>
             </div>
             <div class="col-sm-8">
-                <div id="framerate"></div>
                 <h4>Use the mouse to spin the tank and click on it to shoot zombies!</h4>
-                <h4 class="text-mute">Keep shooting, sometimes they hide...</h4>
-
-                <canvas id="stage" width="400" height="400"></canvas>
             </div>
+            <script>
+                let Application = PIXI.Application,
+                    Container = PIXI.Container,
+                    loader = PIXI.loader,
+                    resources = PIXI.loader.resources,
+                    Graphics = PIXI.Graphics,
+                    TextureCache = PIXI.utils.TextureCache,
+                    Sprite = PIXI.Sprite,
+                    Text = PIXI.Text,
+                    TextStyle = PIXI.TextStyle;
+
+                var renderer = PIXI.autoDetectRenderer(800, 600, {
+                    width: window.innerWidth,
+                    height: window.innerHeight,
+                    resolution: 1
+                });
+                document.body.appendChild(renderer.view);
+
+                loader
+                    .add('sources/img/gameBackground.png', 'sources/img/player.png', 'sources/img/zombie.png', 'sources/img/birdenemie.png')
+                    .load(setup);
+
+                let player, bullet, birdEnemy;
+
+                function setup() {
+
+                    player = new Sprite()
+                }
+            </script>
         </div>
     </container>
     <footer>
     </footer>
-    <script src="sources/js/emmiterScript.js"></script>
+
 
     <!-------   FOR TESTING  <button class="btn1">Left</button>
     <button class="btn2">Right</button> ----------->
@@ -52,8 +72,14 @@
 
 
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.js"></script>
+
+
+
+    <!--------------------------------------Game JavaScript-->
+    <!-- <script type="text/javascript" src="sources/js/game.js"></script>-->
+
+
+
 
 </body>
 

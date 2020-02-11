@@ -88,8 +88,11 @@ Using DevTools - CSS Grd Inspector I figured out that my game area had set `posi
 >Can't control the speed from a Sprite
 I current problem that I'm encountering right now it's my lack of understanding where to iterate parameters like speed to the pixi js engine. PIXI JS has a very good boiler to play https://www.pixiplayground.com/#/edit/DsTc1Aq0848CTPQRAiW__
 
-https://github.com/pixijs/pixi.js/wiki/v5-Custom-Application-GameLoop
+**Solution**
+I had to restructure my game to have my sprites, bullets or enemies, that repeat but don't create new objects as infinite loop on the DOM.
 
+> SyntaxError: redeclaration of var bg
+I had to be careful not to declare a variable more than once.
 
 ### References
 
