@@ -11,24 +11,25 @@
      *  @param {boolean} [stepColors=false] If the color settings should be manually stepped.
      */
 
-    var ParticleExample = function(imagePaths, config, type, useParticleContainer, stepColors) {
-        var canvas = document.getElementById("stage");
+    let ParticleExample = function(imagePaths, config, type, useParticleContainer, stepColors) {
+        let canvas = document.getElementById("stage");
         // Basic PIXI Setup
-        var rendererOptions = {
+        let rendererOptions = {
             view: canvas,
         };
 
-        var stage = new PIXI.Container(),
+        let stage = new PIXI.Container(),
             // Exploding Particle filter for PixiJS set on null thanks to this answer https://www.sitepoint.com/community/t/why-you-set-variable-to-null-at-the-beginning-of-javascript/35038    
             emitter = null,
             renderer = PIXI.autoDetectRenderer(canvas.width, canvas.height, rendererOptions),
             bg = null;
 
-        var framerate = document.getElementById("framerate");
-        var particleCount = document.getElementById("particleCount");
+        let particleCount = document.getElementById("particleCount");
 
-        var counter = 0;
+        /*var counter = 0;*/
 
+        // Kills score based on this solution https://codepen.io/b3nny1080/pen/vxZzJP
+        let hitCounter = 0;
 
 
         // loading my images
@@ -111,7 +112,7 @@
         }
 
 
-        // Emitter Plugin 
+        // Emitter Plugin - Explosion effect
 
         // Calculate the current time
         var elapsed = Date.now();
@@ -128,8 +129,6 @@
             if (emitter)
                 emitter.update((now - elapsed) * 0.001);
 
-            framerate.innerHTML = (1000 / (now - elapsed)).toFixed(2);
-
             elapsed = now;
 
             if (emitter && particleCount)
@@ -138,7 +137,6 @@
 
             // Player motion active and shooting
             player.rotation = rotateToPoint(renderer.plugins.interaction.mouse.global.x, renderer.plugins.interaction.mouse.global.y, player.position.x, player.position.y);
-
 
             // Action for shooting zombies
             for (let b = 0; b < bullets.length; b++) {
@@ -150,10 +148,13 @@
 
                     bullets[b].position.x += Math.cos(bullets[b].rotation) * bulletSpeed;
                     bullets[b].position.y += Math.sin(bullets[b].rotation) * bulletSpeed;
+
                     // Destroying the birds action
                     if (hitTestRectangle(bullets[b], birdEnemie)) {
                         console.log("hit");
-
+                        hitCounter += 1;
+                        document.getElementById("hitCounter").innerHTML = hitCounter;
+                        // Creating multiple enemies
                         if (!emitter) return;
                         emitter.emit = true;
                         emitter.resetPositionTracking();
@@ -168,10 +169,9 @@
                         console.log(bullets.length);
 
                         console.log(birdEnemie);
-                        // Create multiple enemies
+                        // Move enemies on game area
                         birdEnemie.position.x = Math.random() * renderer.width;
                         birdEnemie.position.y = Math.random() * renderer.height;
-
 
 
                     } else {
@@ -217,13 +217,12 @@
             //bg is a 1px by 1px image
             bg.scale.x = canvas.width;
             bg.scale.y = canvas.height;
-            /*bg.tint = 0x000000;*/
+            bg.transparent = false;
             stage.addChild(bg);
 
             stage.addChild(player);
 
-
-
+            // Ensuring the enemies are loaded
             console.log(birdEnemie);
 
             birdEnemie.position.x = Math.random() * renderer.width;
@@ -263,43 +262,12 @@
                 art,
                 config
             );
-            /*if (stepColors)
-            	emitter.startColor = PIXI.particles.ParticleUtils.createSteppedGradient(config.color.list, stepColors);
-            if(type == "path")
-            	emitter.particleConstructor = PIXI.particles.PathParticle;
-            else if(type == "anim")
-            	emitter.particleConstructor = PIXI.particles.AnimatedParticle;*/
-
-            // Center on the stage
-            //emitter.updateOwnerPos(window.innerWidth / 2, window.innerHeight / 2);
-
-            // Click on the canvas to trigger
-            /*canvas.addEventListener('mouseup', function(e){
-            	if(!emitter) return;
-            	emitter.emit = true;
-            	emitter.resetPositionTracking();
-            	emitter.updateOwnerPos(e.offsetX || e.layerX, e.offsetY || e.layerY);
-            });*/
 
             // Start the update
             emitter.emit = false;
 
             update();
 
-            //for testing and debugging
-            /*window.destroyEmitter = function()
-            {
-            	emitter.destroy();
-            	emitter = null;
-            	window.destroyEmitter = null;
-            	//cancelAnimationFrame(updateId);
-
-            	//reset SpriteRenderer's batching to fully release particles for GC
-            	if (renderer.plugins && renderer.plugins.sprite && renderer.plugins.sprite.sprites)
-            		renderer.plugins.sprite.sprites.length = 0;
-
-            	renderer.render(stage);
-            };*/
         });
     };
 
