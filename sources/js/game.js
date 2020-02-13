@@ -26,10 +26,30 @@
 
         let particleCount = document.getElementById("particleCount");
 
-        /*var counter = 0;*/
-
         // Kills score based on this solution https://codepen.io/b3nny1080/pen/vxZzJP
         let hitCounter = 0;
+
+        // Countdown Timer
+
+        var i = 10000;
+
+        function onTimer() {
+            document.getElementById("timer").innerHTML = i;
+
+
+            if (i > 0) {
+                document.getElementById("timer").innerHTML = i;
+                i--;
+                setTimeout(onTimer, i);
+                //update();
+            } else {
+                alert('Game Over');
+                location.reload(stage);
+
+            }
+        }
+        onTimer();
+
 
 
         // loading my images
@@ -152,8 +172,11 @@
                     // Destroying the birds action
                     if (hitTestRectangle(bullets[b], birdEnemie)) {
                         console.log("hit");
+
+                        // Kills counter
                         hitCounter += 1;
                         document.getElementById("hitCounter").innerHTML = hitCounter;
+
                         // Creating multiple enemies
                         if (!emitter) return;
                         emitter.emit = true;

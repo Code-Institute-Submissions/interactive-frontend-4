@@ -21,6 +21,8 @@ This are the things we need to have on the game:
 ## Game Structure
 As I was clueless how to start I followed the logic on this tutorial. https://github.com/kittykatattack/learningPixi
 
+http://proclive.io/shooting-tutorial/
+
 The first step was to get familiar with the game engine . If I wanted to work locallywithout waiting on my repository to update I had to get familiar with the UNIX command line and being able to set up a localhost, it's the only way PixiJS it's able to simulate the interaction due to WebGL methods.
 
 My next step was to get familiar with Sprites which are large files with all images that you're using in your game. The creation of a JSON file as an atlas to find and cut the elemnt we're using without having to load all images as single instruction each time.
