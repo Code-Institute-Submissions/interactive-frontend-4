@@ -29,26 +29,21 @@
         // Kills score based on this solution https://codepen.io/b3nny1080/pen/vxZzJP
         let hitCounter = 0;
 
-        // Countdown Timer
-
-        var i = 10000;
-
-        function onTimer() {
-            document.getElementById("timer").innerHTML = i;
-
-
-            if (i > 0) {
-                document.getElementById("timer").innerHTML = i;
-                i--;
-                setTimeout(onTimer, i);
-                //update();
-            } else {
+        // Countdown Timer based on this solution https://jsfiddle.net/satyasrinivaschekuri/y03m54Le/
+        let counter = 60;
+        let interval = setInterval(function() {
+            counter--;
+            if (counter <= 0) {
+                clearInterval(interval);
                 alert('Game Over');
                 location.reload(stage);
-
+            } else {
+                $("#time").text(counter);
+                console.log(counter);
             }
-        }
-        onTimer();
+
+
+        }, 1000);
 
 
 
