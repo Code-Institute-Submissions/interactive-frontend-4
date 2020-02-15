@@ -4,60 +4,72 @@
 
 ### Content
 1. [Introduction](#intro)
-2. [ Usage tips. ](#usage)
+2. [Game Structure](#structure)
+3. [UX Design](#ux-design)
+4. [Code Structure](#code)
+5. [Testing](#testing)
 
 <a name="intro"></a>
 **What's the aim of the game?**
-To kill a flock of cannibal deadbirds using the zombies that we have as pandemic on the planet. 
+The aim is to kill a flock of cannibal deadbirds that are attacking the planet by using the tank to shoot zombies. 
 
-I came across a very useful library https://www.pixijs.com/ this is an open source available to make stunning graphics. Another useful source is https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript which explains step by step how to get familiar with game development.
+I came across a very useful library https://www.pixijs.com/ this is an open source game engine available to make stunning graphics. Another useful source is https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript which explains step by step how to get familiar with game development.
 
-In order to achieve the game's best performance it was important to use game engine APIs such as PixiJS.
+In order to achieve the game's best performance it was important to use a game engine APIs such as PixiJS which buiilt-in functions game animations and actions.
 
 ### Requirements of the game 
 
 **Game's Checklist**
-This are the things we need to have on the game:
+This is a list of things we need to achieve on the coding:
 * A canvas where the game is played (2D)
 * Instructions how to play the game
 * Game Components 
-* Game Engine or API 
+* Game Engine or API
+* Score and timer 
 
+<a name="structure"></a>
 ## Game Structure
-As I was clueless how to start I followed the logic on this tutorial. https://github.com/kittykatattack/learningPixi
+As I was clueless how to start I followed the logic on this tutorial. https://github.com/kittykatattack/learningPixi. On this case study is shown the global scope variables and local functions to call and use those variables.
 
-http://proclive.io/shooting-tutorial/
+The first step was to get familiar with the game engine. If I wanted to work locally without waiting on my repository to update I had to get familiar with the UNIX command line and being able to set up a localhost, it's the only way PixiJS can simulate the interaction due to WebGL methods.
 
-The first step was to get familiar with the game engine . If I wanted to work locallywithout waiting on my repository to update I had to get familiar with the UNIX command line and being able to set up a localhost, it's the only way PixiJS it's able to simulate the interaction due to WebGL methods.
+Next thing to achieve was the shooting action, I based mine on the coding solution: http://proclive.io/shooting-tutorial/ I used it because it was exactly what I needed. I wanted to rotate my player from a fixed position on my game area.
 
-My next step was to get familiar with Sprites which are large files with all images that you're using in your game. The creation of a JSON file as an atlas to find and cut the elemnt we're using without having to load all images as single instruction each time.
+My next step was to get familiar with Sprites which are large files with all images that you're using in your game. The creation of a JSON file as an atlas to find and cut the elemnt we're using without having to load all images as single instruction each time. On this game, the JSON file was used to create the explosion effect when the birds are shot.
+
 * To generate my JSON file I used: https://www.codeandweb.com/free-sprite-sheet-packer
-
-The `#player` is able to shoot zombies to targets (birds). To control the action area I used `overflow: hidden;` on the body's CSS to make sure the action stays inside this game window or `#gameArea` in this case.
 
 ### Shooting
 To be able to shoot the zombies, I had to trigger an event on the "bullet" or `zombomb` in this case, to solve this, I decided to translate this `<div id="zombomb">` on Y coordinates and another `function` to call it back to the original position. This was achieved with `animate` and the call back function to reset the animation.
 
-### Collision as your weapon
-Now it's time to kill some birds, I understand that if I'm making the 2 components to collide for that we need to creat the 2D axis.
 
+<a name="ux-design"></a>
 
 ### UX Design
 
 **Canvas**
-One of the first problem is to make the canvas responsive I added `class` for `canvas` element but it was stretching the image to the full width of the page making all graphics distorned.
+One of the first problem is to make the canvas responsive I added `class` for `canvas` element but it was stretching the image to the full width of the page making all graphics distorned. Pixi JS sorts this out by adjusting the canvas size to `canvas.width = window.innerWidth; canvas.height = window.innerHeight; renderer.resize(canvas.width, canvas.height);`. Now it's full responsive and letting the renderer decide the size with a css property set to 100%.
+ 
 
-I have got that by leaving the canvas on the index.html file but the functions of the game are not working. With the same example of game I made the game work and it's fully responsive . 
-
-**Checklist for the Zombie component**
-* Must be a SVG or PNG graphic
+**UX - Checklist**
+* Game logo and colour scheme
+* Must be SVG or PNG graphics
 * Icon that it's easy to recognise
+* Clear instructions how to play
+* Game Inter with an "allert" colour
 
-### Code Structure
+<a name="code"></a>
+
+# Code Structure
 In order to achieve and understand the different part componing this project, I based my coding on this video tutorial https://www.youtube.com/watch?v=L07i4g-zhDA
 
-To make the player active, I have to call a function within the canvas using this player/user as object with a function to rotate and shoot to the target.
+### Collision of two sprites as killing action
+Now it's time to kill some birds, I understand that if I'm making the 2 components to collide for that we need to creat the 2D axis.
 
+### Explosion effect
+I based my code on this solution: https://github.com/pixijs/pixi-particles/blob/master/docs/examples/js/ParticleExample.js I had to place my working variables into this code to make sure explosion effect works, in this case called Emitter.
+
+<a name="testing"></a>
 
 ### Testing
 

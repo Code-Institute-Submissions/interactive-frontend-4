@@ -1,7 +1,7 @@
 (function(window) {
 
 
-    let ParticleExample = function(imagePaths, config, type, useParticleContainer, stepColors) {
+    let ParticleExample = function(imagePaths, config, useParticleContainer) {
         let canvas = document.getElementById("stage");
         // Basic PIXI Setup
         let rendererOptions = {
@@ -38,12 +38,13 @@
 
 
         // loading my images
-        let texture = PIXI.Texture.fromImage('sources/img/player.png');
+        let background = PIXI.Texture.fromImage("sources/img/bg.png");
+        let tank = PIXI.Texture.fromImage('sources/img/player.png');
         let zombomb = PIXI.Texture.fromImage('sources/img/zombie.png');
         let enemie = PIXI.Texture.fromImage('sources/img/birdenemie.png');
 
-        // calling the image for my player
-        let player = new PIXI.Sprite(texture);
+        // Create player variable
+        let player = new PIXI.Sprite(tank);
         // center player's anchor point
         player.anchor.x = 0.5;
         player.anchor.y = 0.5;
@@ -52,12 +53,19 @@
         player.position.x = 150;
         player.position.y = 310;
 
+        // Create enemy variable
         let birdEnemie = new PIXI.Sprite(enemie);
 
         // Allows all game components to work
         stage.interactive = true;
 
         stage.on("mousedown", function(e) {
+            shoot(player.rotation, {
+                x: player.position.x + Math.cos(player.rotation) * 20,
+                y: player.position.y + Math.sin(player.rotation) * 20
+            });
+        })
+        stage.on("touchend", function(e) {
             shoot(player.rotation, {
                 x: player.position.x + Math.cos(player.rotation) * 20,
                 y: player.position.y + Math.sin(player.rotation) * 20
@@ -119,18 +127,18 @@
 
         // Emitter Plugin - Explosion effect
 
-        // Calculate the current time
-        var elapsed = Date.now();
+        // Set the values to run animation
+        let elapsed = Date.now();
 
-        var updateId;
+        let updateId;
 
         // Update function every frame
-        var update = function() {
+        let update = function() {
 
             // Update the next frame
             updateId = requestAnimationFrame(update);
 
-            var now = Date.now();
+            let now = Date.now();
             if (emitter)
                 emitter.update((now - elapsed) * 0.001);
 
@@ -140,21 +148,20 @@
                 particleCount.innerHTML = emitter.particleCount;
 
 
-            // Player motion active and shooting
+            // Player rotation active and shooting
             player.rotation = rotateToPoint(renderer.plugins.interaction.mouse.global.x, renderer.plugins.interaction.mouse.global.y, player.position.x, player.position.y);
 
-            // Action for shooting zombies
+            // Shooting function called
             for (let b = 0; b < bullets.length; b++) {
 
                 console.log(bullets[b]);
 
 
                 if (bullets[b] != null) {
-
                     bullets[b].position.x += Math.cos(bullets[b].rotation) * bulletSpeed;
                     bullets[b].position.y += Math.sin(bullets[b].rotation) * bulletSpeed;
 
-                    // Destroying the birds action
+                    // Destroying the birds, collision called
                     if (hitTestRectangle(bullets[b], birdEnemie)) {
                         console.log("hit");
 
@@ -167,7 +174,7 @@
                         emitter.emit = true;
                         emitter.resetPositionTracking();
                         emitter.updateOwnerPos(birdEnemie.centerX, birdEnemie.centerY);
-
+                        // Remove bullets once collision happened
                         bullets[b].destroy();
 
                         console.log(bullets.length);
@@ -204,8 +211,8 @@
             }
         };
         window.onresize();
-        background = PIXI.Texture.fromImage("sources/img/bg.png")
-            // Preload the particle images and create PIXI textures from it
+
+        // Preload the particle images and create PIXI textures from it
         let urls, makeTextures = false;
         if (imagePaths.spritesheet)
             urls = [imagePaths.spritesheet];
@@ -221,7 +228,6 @@
             loader.add("img" + i, urls[i]);
 
         loader.load(function() {
-
             bg = new PIXI.Sprite(background);
             bg.scale.x = canvas.width;
             bg.scale.y = canvas.height;
