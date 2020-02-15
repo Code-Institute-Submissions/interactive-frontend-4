@@ -2,6 +2,11 @@
 ### Interactive Frontend Development
 ### Second Milestone Project, Code Institute by Kervin Arias
 
+### Content
+1. [Introduction](#intro)
+2. [ Usage tips. ](#usage)
+
+<a name="intro"></a>
 **What's the aim of the game?**
 To kill a flock of cannibal deadbirds using the zombies that we have as pandemic on the planet. 
 

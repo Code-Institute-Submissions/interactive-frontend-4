@@ -199,14 +199,13 @@
             canvas.height = window.innerHeight;
             renderer.resize(canvas.width, canvas.height);
             if (bg) {
-                //bg is a 1px by 1px image
                 bg.scale.x = canvas.width;
                 bg.scale.y = canvas.height;
             }
         };
         window.onresize();
-
-        // Preload the particle images and create PIXI textures from it
+        background = PIXI.Texture.fromImage("sources/img/bg.png")
+            // Preload the particle images and create PIXI textures from it
         let urls, makeTextures = false;
         if (imagePaths.spritesheet)
             urls = [imagePaths.spritesheet];
@@ -220,8 +219,9 @@
         let loader = PIXI.loader;
         for (let i = 0; i < urls.length; ++i)
             loader.add("img" + i, urls[i]);
+
         loader.load(function() {
-            background = PIXI.Texture.fromImage("sources/img/bg.png")
+
             bg = new PIXI.Sprite(background);
             bg.scale.x = canvas.width;
             bg.scale.y = canvas.height;
@@ -245,8 +245,10 @@
                 art = [];
                 for (let i = 0; i < imagePaths.length; ++i)
                     art.push(PIXI.Texture.fromImage(imagePaths[i]));
-            } else
+            } else {
                 art = imagePaths.art;
+            };
+
 
             // Explosion calls emitter, particle effect
             let emitterContainer;
@@ -259,17 +261,17 @@
                     uvs: true,
                     alpha: true
                 });
-            } else
+            } else {
                 emitterContainer = new PIXI.Container();
 
-            stage.addChild(emitterContainer);
+                stage.addChild(emitterContainer);
 
-            window.emitter = emitter = new PIXI.particles.Emitter(
-                emitterContainer,
-                art,
-                config
-            );
-
+                window.emitter = emitter = new PIXI.particles.Emitter(
+                    emitterContainer,
+                    art,
+                    config
+                );
+            };
             // Start the update
             emitter.emit = false;
 
