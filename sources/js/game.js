@@ -65,7 +65,9 @@
                 y: player.position.y + Math.sin(player.rotation) * 20
             });
         })
-        stage.on("touchend", function(e) {
+
+        // Shooting for touch screen devices
+        stage.on("touchmove", function(e) {
             shoot(player.rotation, {
                 x: player.position.x + Math.cos(player.rotation) * 20,
                 y: player.position.y + Math.sin(player.rotation) * 20
