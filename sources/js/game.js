@@ -1,15 +1,5 @@
 (function(window) {
 
-    /**
-     *  Basic example setup
-     *  @class ParticleExample
-     *  @constructor
-     *  @param {String[]} imagePaths The local path to the image source
-     *  @param {Object} config The emitter configuration
-     *  @param {null|"path"|"anim"} [type=null] Particle type to create.
-     *  @param {boolean} [useParticleContainer=false] If a ParticleContainer should be used instead of a Container.
-     *  @param {boolean} [stepColors=false] If the color settings should be manually stepped.
-     */
 
     let ParticleExample = function(imagePaths, config, type, useParticleContainer, stepColors) {
         let canvas = document.getElementById("stage");
@@ -203,7 +193,7 @@
             renderer.render(stage);
         };
 
-        // Resize the canvas to the size of the window
+        // Resize canvas to the size of the window
         window.onresize = function(event) {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
@@ -217,7 +207,7 @@
         window.onresize();
 
         // Preload the particle images and create PIXI textures from it
-        var urls, makeTextures = false;
+        let urls, makeTextures = false;
         if (imagePaths.spritesheet)
             urls = [imagePaths.spritesheet];
         else if (imagePaths.textures)
@@ -227,15 +217,15 @@
             makeTextures = true;
         }
         urls.push("sources/img/bg.png");
-        var loader = PIXI.loader;
-        for (var i = 0; i < urls.length; ++i)
+        let loader = PIXI.loader;
+        for (let i = 0; i < urls.length; ++i)
             loader.add("img" + i, urls[i]);
         loader.load(function() {
-            bg = new PIXI.Sprite(PIXI.Texture.fromImage("sources/img/bg.png"));
-            //bg is a 1px by 1px image
+            background = PIXI.Texture.fromImage("sources/img/bg.png")
+            bg = new PIXI.Sprite(background);
             bg.scale.x = canvas.width;
             bg.scale.y = canvas.height;
-            bg.transparent = false;
+
             stage.addChild(bg);
 
             stage.addChild(player);
@@ -246,21 +236,20 @@
             birdEnemie.position.x = Math.random() * renderer.width;
             birdEnemie.position.y = Math.random() * renderer.height;
 
-            //console.log(birdEnemie.position.x);
 
             stage.addChild(birdEnemie);
 
             //collect the textures, now that they are all loaded
-            var art;
+            let art;
             if (makeTextures) {
                 art = [];
-                for (var i = 0; i < imagePaths.length; ++i)
+                for (let i = 0; i < imagePaths.length; ++i)
                     art.push(PIXI.Texture.fromImage(imagePaths[i]));
             } else
                 art = imagePaths.art;
 
-            // Create the new emitter and attach it to the stage
-            var emitterContainer;
+            // Explosion calls emitter, particle effect
+            let emitterContainer;
             if (useParticleContainer) {
                 emitterContainer = new PIXI.ParticleContainer();
                 emitterContainer.setProperties({
