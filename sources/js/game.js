@@ -37,6 +37,7 @@ $(document).ready(function(window) {
 
 
         // loading my images
+        let background = PIXI.Texture.fromImage('sources/img/bg.png');
         let texture = PIXI.Texture.fromImage('sources/img/player.png');
         let zombomb = PIXI.Texture.fromImage('sources/img/zombie.png');
         let enemie = PIXI.Texture.fromImage('sources/img/birdenemie.png');
@@ -89,12 +90,10 @@ $(document).ready(function(window) {
             r2.halfWidth = r2.width / 2;
             r2.halfHeight = r2.height / 2;
 
-            //Create a `collision` variable that will tell us
-            //if a collision is occurring
+            //Create a `collision` variable that will tell us if a collision is occurring
             let collision = false;
 
-            //Check whether the shapes of the sprites are overlapping. If they
-            //are, set `collision` to `true`
+            //Check whether the shapes of the sprites are overlapping. If they are, set `collision` to `true`
             if (Math.abs(r1.centerX - r2.centerX) < r1.halfWidth + r2.halfWidth &&
                 Math.abs(r1.centerY - r2.centerY) < r1.halfHeight + r2.halfHeight) {
                 collision = true;
@@ -106,7 +105,6 @@ $(document).ready(function(window) {
 
         // Shooting zombies function
         function shoot(rotation, startPosition) {
-            console.log("shoot called");
             let bullet = new PIXI.Sprite(zombomb);
             bullet.position.x = startPosition.x;
             bullet.position.y = startPosition.y;
@@ -153,9 +151,6 @@ $(document).ready(function(window) {
             // Action for shooting zombies
             for (let b = 0; b < bullets.length; b++) {
 
-                console.log(bullets[b]);
-
-
                 if (bullets[b] != null) {
 
                     bullets[b].position.x += Math.cos(bullets[b].rotation) * bulletSpeed;
@@ -163,7 +158,6 @@ $(document).ready(function(window) {
 
                     // Destroying the birds action
                     if (hitTestRectangle(bullets[b], birdEnemie)) {
-                        console.log("hit");
 
                         // Kills counter
                         hitCounter += 1;
@@ -176,14 +170,8 @@ $(document).ready(function(window) {
                         emitter.updateOwnerPos(birdEnemie.centerX, birdEnemie.centerY);
 
                         bullets[b].destroy();
-
-                        console.log(bullets.length);
-
                         bullets[b] = null;
 
-                        console.log(bullets.length);
-
-                        console.log(birdEnemie);
                         // Move enemies on game area
                         birdEnemie.position.x = Math.random() * renderer.width;
                         birdEnemie.position.y = Math.random() * renderer.height;
@@ -214,7 +202,7 @@ $(document).ready(function(window) {
         window.onresize();
 
         // Preload the particle images and create PIXI textures from it
-        var urls, makeTextures = false;
+        let urls, makeTextures = false;
         if (imagePaths.spritesheet)
             urls = [imagePaths.spritesheet];
         else if (imagePaths.textures)
@@ -223,13 +211,12 @@ $(document).ready(function(window) {
             urls = imagePaths.slice();
             makeTextures = true;
         }
-        urls.push("sources/img/bg.png");
-        var loader = PIXI.loader;
-        for (var i = 0; i < urls.length; ++i)
+        urls.push(background);
+        let loader = PIXI.loader;
+        for (let i = 0; i < urls.length; ++i)
             loader.add("img" + i, urls[i]);
         loader.load(function() {
-            bg = new PIXI.Sprite(PIXI.Texture.fromImage("sources/img/bg.png"));
-            //bg is a 1px by 1px image
+            let bg = new PIXI.Sprite(background);
             bg.scale.x = canvas.width;
             bg.scale.y = canvas.height;
             bg.transparent = false;
@@ -237,17 +224,13 @@ $(document).ready(function(window) {
 
             stage.addChild(player);
 
-            // Ensuring the enemies are loaded
-            console.log(birdEnemie);
-
+            // Random location and creation of enemies
             birdEnemie.position.x = Math.random() * renderer.width;
             birdEnemie.position.y = Math.random() * renderer.height;
 
-            //console.log(birdEnemie.position.x);
-
             stage.addChild(birdEnemie);
 
-            //collect the textures, now that they are all loaded
+            // Collect the textures, now that they are all loaded
             let art;
             if (makeTextures) {
                 art = [];
