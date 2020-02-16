@@ -1,5 +1,4 @@
-(function(window) {
-
+$(document).ready(function(window) {
 
     let ParticleExample = function(imagePaths, config, useParticleContainer) {
         let canvas = document.getElementById("stage");
@@ -38,13 +37,12 @@
 
 
         // loading my images
-        let background = PIXI.Texture.fromImage("sources/img/bg.png");
-        let tank = PIXI.Texture.fromImage('sources/img/player.png');
+        let texture = PIXI.Texture.fromImage('sources/img/player.png');
         let zombomb = PIXI.Texture.fromImage('sources/img/zombie.png');
         let enemie = PIXI.Texture.fromImage('sources/img/birdenemie.png');
 
-        // Create player variable
-        let player = new PIXI.Sprite(tank);
+        // calling the image for my player
+        let player = new PIXI.Sprite(texture);
         // center player's anchor point
         player.anchor.x = 0.5;
         player.anchor.y = 0.5;
@@ -53,7 +51,6 @@
         player.position.x = 150;
         player.position.y = 310;
 
-        // Create enemy variable
         let birdEnemie = new PIXI.Sprite(enemie);
 
         // Allows all game components to work
@@ -129,18 +126,18 @@
 
         // Emitter Plugin - Explosion effect
 
-        // Set the values to run animation
-        let elapsed = Date.now();
+        // Calculate the current time
+        var elapsed = Date.now();
 
-        let updateId;
+        var updateId;
 
         // Update function every frame
-        let update = function() {
+        var update = function() {
 
             // Update the next frame
             updateId = requestAnimationFrame(update);
 
-            let now = Date.now();
+            var now = Date.now();
             if (emitter)
                 emitter.update((now - elapsed) * 0.001);
 
@@ -150,20 +147,21 @@
                 particleCount.innerHTML = emitter.particleCount;
 
 
-            // Player rotation active and shooting
+            // Player motion active and shooting
             player.rotation = rotateToPoint(renderer.plugins.interaction.mouse.global.x, renderer.plugins.interaction.mouse.global.y, player.position.x, player.position.y);
 
-            // Shooting function called
+            // Action for shooting zombies
             for (let b = 0; b < bullets.length; b++) {
 
                 console.log(bullets[b]);
 
 
                 if (bullets[b] != null) {
+
                     bullets[b].position.x += Math.cos(bullets[b].rotation) * bulletSpeed;
                     bullets[b].position.y += Math.sin(bullets[b].rotation) * bulletSpeed;
 
-                    // Destroying the birds, collision called
+                    // Destroying the birds action
                     if (hitTestRectangle(bullets[b], birdEnemie)) {
                         console.log("hit");
 
@@ -176,7 +174,7 @@
                         emitter.emit = true;
                         emitter.resetPositionTracking();
                         emitter.updateOwnerPos(birdEnemie.centerX, birdEnemie.centerY);
-                        // Remove bullets once collision happened
+
                         bullets[b].destroy();
 
                         console.log(bullets.length);
@@ -202,12 +200,13 @@
             renderer.render(stage);
         };
 
-        // Resize canvas to the size of the window
+        // Resize the canvas to the size of the window
         window.onresize = function(event) {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
             renderer.resize(canvas.width, canvas.height);
             if (bg) {
+                //bg is a 1px by 1px image
                 bg.scale.x = canvas.width;
                 bg.scale.y = canvas.height;
             }
@@ -215,7 +214,7 @@
         window.onresize();
 
         // Preload the particle images and create PIXI textures from it
-        let urls, makeTextures = false;
+        var urls, makeTextures = false;
         if (imagePaths.spritesheet)
             urls = [imagePaths.spritesheet];
         else if (imagePaths.textures)
@@ -225,15 +224,15 @@
             makeTextures = true;
         }
         urls.push("sources/img/bg.png");
-        let loader = PIXI.loader;
-        for (let i = 0; i < urls.length; ++i)
+        var loader = PIXI.loader;
+        for (var i = 0; i < urls.length; ++i)
             loader.add("img" + i, urls[i]);
-
         loader.load(function() {
-            bg = new PIXI.Sprite(background);
+            bg = new PIXI.Sprite(PIXI.Texture.fromImage("sources/img/bg.png"));
+            //bg is a 1px by 1px image
             bg.scale.x = canvas.width;
             bg.scale.y = canvas.height;
-
+            bg.transparent = false;
             stage.addChild(bg);
 
             stage.addChild(player);
@@ -244,6 +243,7 @@
             birdEnemie.position.x = Math.random() * renderer.width;
             birdEnemie.position.y = Math.random() * renderer.height;
 
+            //console.log(birdEnemie.position.x);
 
             stage.addChild(birdEnemie);
 
@@ -253,12 +253,10 @@
                 art = [];
                 for (let i = 0; i < imagePaths.length; ++i)
                     art.push(PIXI.Texture.fromImage(imagePaths[i]));
-            } else {
+            } else
                 art = imagePaths.art;
-            };
 
-
-            // Explosion calls emitter, particle effect
+            // Create the new emitter and attach it to the stage
             let emitterContainer;
             if (useParticleContainer) {
                 emitterContainer = new PIXI.ParticleContainer();
@@ -269,17 +267,17 @@
                     uvs: true,
                     alpha: true
                 });
-            } else {
+            } else
                 emitterContainer = new PIXI.Container();
 
-                stage.addChild(emitterContainer);
+            stage.addChild(emitterContainer);
 
-                window.emitter = emitter = new PIXI.particles.Emitter(
-                    emitterContainer,
-                    art,
-                    config
-                );
-            };
+            window.emitter = emitter = new PIXI.particles.Emitter(
+                emitterContainer,
+                art,
+                config
+            );
+
             // Start the update
             emitter.emit = false;
 
