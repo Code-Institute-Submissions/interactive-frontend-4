@@ -42,7 +42,14 @@ $(document).ready(function(window) {
         let particleCount = document.getElementById("particleCount");
 
         let lastScore = localStorage.getItem("score");
+        if (lastScore == null) {
+            lastScore = 'Not Present'
+        } else {
+            //is fine
+        }
         $("#score-num").text("Last score: " + lastScore);
+
+
 
         // Kills score based on this solution https://codepen.io/b3nny1080/pen/vxZzJP
         let hitCounter = 0;
