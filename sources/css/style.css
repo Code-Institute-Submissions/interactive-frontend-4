@@ -1,17 +1,24 @@
 /* -------------------general styling  -------------*/
 
+@import url('https://fonts.googleapis.com/css?family=Lacquer&display=swap');
 body {
-    margin: 0;
+    margin: 2%;
+    font-family: 'Lacquer', sans-serif;
+}
+
+.logo {
+    padding: 1%;
+    text-align: center;
+}
+
+.user-name {
+    font-size: 2rem;
 }
 
 
-/* -------------------  GAME COMPONENTS  -------------*/
+/* -------------------  GAME STYLING  -------------*/
 
 canvas {
     width: 100%;
     height: 100%;
-}
-
-.logo {
-    padding: 3%;
 }

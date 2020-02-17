@@ -1,5 +1,31 @@
-$(document).ready(function(window) {
+$(document).ready(function() {
+    // Retrieving data from the user
+    let user;
 
+    function checkInput() {
+        // Start with the game with a user name
+        if (user != null && user.trim() != '') {
+            window;
+        } else {
+            alert("Please enter a user name to play");
+            getinput();
+
+        }
+
+    }
+
+    function getinput() {
+        user = prompt("User Name", "");
+        $('#name').text(user);
+        checkInput();
+    }
+
+    getinput();
+
+});
+
+
+$(document).ready(function(window) {
     let ParticleExample = function(imagePaths, config, useParticleContainer) {
         let canvas = document.getElementById("stage");
         // Basic PIXI Setup
@@ -15,6 +41,9 @@ $(document).ready(function(window) {
 
         let particleCount = document.getElementById("particleCount");
 
+        let lastScore = localStorage.getItem("score");
+        $("#score-num").text("Last score: " + lastScore);
+
         // Kills score based on this solution https://codepen.io/b3nny1080/pen/vxZzJP
         let hitCounter = 0;
 
@@ -28,7 +57,6 @@ $(document).ready(function(window) {
                 location.reload(stage);
             } else {
                 $("#time").text(counter);
-                console.log(counter);
             }
 
 
@@ -38,12 +66,12 @@ $(document).ready(function(window) {
 
         // loading my images
         let background = PIXI.Texture.fromImage('sources/img/bg.png');
-        let texture = PIXI.Texture.fromImage('sources/img/player.png');
+        let tank = PIXI.Texture.fromImage('sources/img/player.png');
         let zombomb = PIXI.Texture.fromImage('sources/img/zombie.png');
         let enemie = PIXI.Texture.fromImage('sources/img/birdenemie.png');
 
         // calling the image for my player
-        let player = new PIXI.Sprite(texture);
+        let player = new PIXI.Sprite(tank);
         // center player's anchor point
         player.anchor.x = 0.5;
         player.anchor.y = 0.5;
@@ -125,17 +153,17 @@ $(document).ready(function(window) {
         // Emitter Plugin - Explosion effect
 
         // Calculate the current time
-        var elapsed = Date.now();
+        let elapsed = Date.now();
 
-        var updateId;
+        let updateId;
 
         // Update function every frame
-        var update = function() {
+        let update = function() {
 
             // Update the next frame
             updateId = requestAnimationFrame(update);
 
-            var now = Date.now();
+            let now = Date.now();
             if (emitter)
                 emitter.update((now - elapsed) * 0.001);
 
@@ -162,6 +190,9 @@ $(document).ready(function(window) {
                         // Kills counter
                         hitCounter += 1;
                         document.getElementById("hitCounter").innerHTML = hitCounter;
+
+                        // Keep Score
+                        localStorage.setItem("score", hitCounter);
 
                         // Creating multiple enemies
                         if (!emitter) return;

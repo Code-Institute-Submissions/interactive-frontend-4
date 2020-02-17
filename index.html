@@ -11,14 +11,13 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="sources/css/style.css" type="text/css">
 
-    <!--------------------------------------Jquery Library-->
+    <!--------------------------------------Jquery Libraries-->
     <script src="sources/js/jquery-3.4.1.js"></script>
-
-
     <title>Zombomb</title>
 </head>
 
 <body>
+    <div id="start"></div>
     <!-----------------------------------PixJs Library for the game-->
     <script src="sources/js/pixi.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/pixi-particles-latest@3.2.0/dist/pixi-particles.min.js"></script>
@@ -30,11 +29,12 @@
             </div>
             <div class="col-sm-8">
 
-                <h4>Use the mouse to spin the tank and click on it to shoot zombies!</h4>
+                <h4><span id="name" class="user-name"></span> Use the mouse to spin the tank and click on it to shoot zombies!</h4>
                 <h4 class="text-secondary">Keep shooting, sometimes these birds hide...</h4>
                 <h5>Killed:
                     <a id="hitCounter">0</a>
                 </h5>
+                <div id="score-num"></div>
                 <div id="timer" class="text-danger">
                     <h5>Time left: <span id="time"></span> seconds</h5>
                 </div>
@@ -59,11 +59,6 @@
     <!-- Particle Plugin to destroy enemy -->
     <script src="sources/js/emmiterScript.js"></script>
 
-
-
-
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.js"></script>
 
 </body>
 
