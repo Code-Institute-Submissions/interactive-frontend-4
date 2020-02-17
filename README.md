@@ -11,6 +11,7 @@
 6. [References](#references)
 
 <a name="intro"></a>
+
 **What's the aim of the game?**
 The aim is to kill a flock of cannibal dead birds that are attacking the planet by using the tank to shoot zombies. This is my second milestone project for Code Institute using javascript.
 
@@ -21,10 +22,8 @@ In order to achieve the game's best performance it was important to use game eng
 ### Requirements of the game 
 This game is suitable for computers using a mouse. I tried to make it work for touch screens/mobile devices but my inexperience got me as far as shooting the bullets but not spinning. I would like to expand it to work with touch screen devices but due to time constraints I focused my efforts on making it work on desktops & laptops.
 
-
-
-
 <a name="structure"></a>
+
 ## Game Structure
 As I was clueless how to start I followed the logic on this tutorial: https://github.com/kittykatattack/learningPixi. On this case study is shown the global scope variables and local functions to call and how to use those variables.
 
@@ -43,17 +42,20 @@ To be able to shoot the zombies I had to trigger an event on the "bullet" or `zo
 <a name="ux-design"></a>
 
 ### UX Design
-
 **Canvas**
 One of the first problem was to make the canvas responsive. I added `class` for `canvas` element but it was stretching the image to the full width of the page making all graphics distorned. Pixi JS sorts this by adjusting the canvas size to `canvas.width = window.innerWidth; canvas.height = window.innerHeight; renderer.resize(canvas.width, canvas.height);`. Now it's fully responsive and letting the renderer decide the size with a css property set to 100%.
- 
+
+**Navigation**
+In this single player game you have two options: play or not play. If you input your name, your name is shown beside the instructions how to play and a hit in case you don't see any bird on the screen.
+
+**Ease of use**
+This is achieved by having a fast render animation. When the user reads the instructions test the functions and expects to be fast due to a minute timeframe.
 
 **UX - Checklist**
 * Game logo and colour scheme
-* Must be SVG or PNG graphics
 * Icon that it's easy to recognise
 * Clear instructions how to play
-* Game Inter with an "alert" colour
+* Game countdown timer with a "danger" colour
 
 <a name="code"></a>
 
@@ -61,14 +63,14 @@ One of the first problem was to make the canvas responsive. I added `class` for 
 In order to achieve and understand the different parts comprising this project, I based my coding on this video tutorial https://www.youtube.com/watch?v=L07i4g-zhDA
 
 **Game's Checklist**
-This is a list of things we need to achieve in the coding:
+To structure my information architecture I need to achieve in the coding:
 * A canvas where the game is played (2D)
-* Instructions how to play the game
 * Game Components 
 * Game Engine or API
 * Score and timer
-* Local Storage
+* Local Storage and user interaction
 
+Further information about information architecture visit game.js file with comments.
 
 ### Collision of two sprites as killing action
 Now it's time to kill some birds! I understand that if I'm making the 2 components to collide for that we need to create the 2D axis.
