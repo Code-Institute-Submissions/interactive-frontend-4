@@ -1,5 +1,5 @@
 //Parameters taken from this source to make emmiter to work https://github.com/pixijs/pixi-particles/blob/master/docs/examples/spaceshipDestruction.html
-new ParticleExample(
+new ParticleExplosion(
     // The image to use
     {
         spritesheet: "sources/img/birdPieces.json",

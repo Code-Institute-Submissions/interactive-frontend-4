@@ -26,15 +26,26 @@ $(document).ready(function() {
 
 
 $(document).ready(function(window) {
-    let ParticleExample = function(imagePaths, config, useParticleContainer) {
-        let canvas = document.getElementById("stage");
-        // Basic PIXI Setup
-        let rendererOptions = {
+    //Set up game area
+    let canvas = document.getElementById("stage");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    let rendererOptions;
+
+    // loading my images
+    let background = PIXI.Texture.fromImage('sources/img/bg.png');
+    let tank = PIXI.Texture.fromImage('sources/img/player.png');
+    let zombomb = PIXI.Texture.fromImage('sources/img/zombie.png');
+    let enemie = PIXI.Texture.fromImage('sources/img/birdenemie.png');
+
+    // Emitter Plugin - Explosion effect
+    let ParticleExplosion = function(imagePaths, config, useParticleContainer) {
+        rendererOptions = {
             view: canvas,
         };
 
         let stage = new PIXI.Container(),
-            // Exploding Particle filter for PixiJS set on null thanks to this answer https://www.sitepoint.com/community/t/why-you-set-variable-to-null-at-the-beginning-of-javascript/35038    
+            // Particle explosion filter for PixiJS set on null thanks to this answer https://www.sitepoint.com/community/t/why-you-set-variable-to-null-at-the-beginning-of-javascript/35038    
             emitter = null,
             renderer = PIXI.autoDetectRenderer(canvas.width, canvas.height, rendererOptions),
             bg = null;
@@ -69,15 +80,7 @@ $(document).ready(function(window) {
 
         }, 1000);
 
-
-
-        // loading my images
-        let background = PIXI.Texture.fromImage('sources/img/bg.png');
-        let tank = PIXI.Texture.fromImage('sources/img/player.png');
-        let zombomb = PIXI.Texture.fromImage('sources/img/zombie.png');
-        let enemie = PIXI.Texture.fromImage('sources/img/birdenemie.png');
-
-        // calling the image for my player
+        // Set up my player
         let player = new PIXI.Sprite(tank);
         // center player's anchor point
         player.anchor.x = 0.5;
@@ -86,7 +89,7 @@ $(document).ready(function(window) {
         // move the sprite to its position
         player.position.x = 150;
         player.position.y = 310;
-
+        // Set up my enemy
         let birdEnemie = new PIXI.Sprite(enemie);
 
         // Allows all game components to work
@@ -99,14 +102,14 @@ $(document).ready(function(window) {
             });
         })
 
-        // Shoot function for mobile devices, failed on rotation
+        // Shoot function for mobile devices working, failed on rotation
         stage.on("touchend", function(e) {
-            shoot(player.rotation, {
-                x: player.position.x + Math.cos(player.rotation) * 20,
-                y: player.position.y + Math.sin(player.rotation) * 20
-            });
-        })
-
+                shoot(player.rotation, {
+                    x: player.position.x + Math.cos(player.rotation) * 20,
+                    y: player.position.y + Math.sin(player.rotation) * 20
+                });
+            })
+            // Create multiple bullets 
         let bullets = [];
         let bulletSpeed = 5;
 
@@ -156,9 +159,6 @@ $(document).ready(function(window) {
             return angle;
         }
 
-
-        // Emitter Plugin - Explosion effect
-
         // Calculate the current time
         let elapsed = Date.now();
 
@@ -187,7 +187,7 @@ $(document).ready(function(window) {
             for (let b = 0; b < bullets.length; b++) {
 
                 if (bullets[b] != null) {
-
+                    // Call shoot action
                     bullets[b].position.x += Math.cos(bullets[b].rotation) * bulletSpeed;
                     bullets[b].position.y += Math.sin(bullets[b].rotation) * bulletSpeed;
 
@@ -228,8 +228,6 @@ $(document).ready(function(window) {
 
         // Resize the canvas to the size of the window
         window.onresize = function(event) {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
             renderer.resize(canvas.width, canvas.height);
             if (bg) {
                 //bg is a 1px by 1px image
@@ -308,6 +306,6 @@ $(document).ready(function(window) {
     };
 
     // Assign to global space
-    window.ParticleExample = ParticleExample;
+    window.ParticleExplosion = ParticleExplosion;
 
 }(window));

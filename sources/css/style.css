@@ -2,7 +2,7 @@
 
 @import url('https://fonts.googleapis.com/css?family=Lacquer&display=swap');
 body {
-    margin: 2%;
+    margin: 3%;
     font-family: 'Lacquer', sans-serif;
 }
 
@@ -12,7 +12,8 @@ body {
 }
 
 .user-name {
-    font-size: 2rem;
+    font-size: 3rem;
+    color: #009933;
 }
 
 

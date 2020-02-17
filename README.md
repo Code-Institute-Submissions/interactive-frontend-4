@@ -3,7 +3,7 @@
 ### Second Milestone Project, Code Institute by Kervin Arias
 
 ### Content
-1. [Introduction](#intro)
+1. [Project Purpose](#intro)
 2. [Game Structure](#structure)
 3. [UX Design](#ux-design)
 4. [Code Structure](#code)
@@ -12,21 +12,17 @@
 
 <a name="intro"></a>
 **What's the aim of the game?**
-The aim is to kill a flock of cannibal dead birds that are attacking the planet by using the tank to shoot zombies. 
+The aim is to kill a flock of cannibal dead birds that are attacking the planet by using the tank to shoot zombies. This is my second milestone project for Code Institute using javascript.
 
-I came across a very useful library https://www.pixijs.com/ this is an open source game engine available to make stunning graphics. Another useful source is https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript which explains step by step how to get familiar with game development.
+I came across a very useful API https://www.pixijs.com/ this is an open source game engine available to make stunning graphics. Another useful source is https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript which explains step by step how to get familiar with game development.
 
-In order to achieve the game's best performance it was important to use game engine APIs such as PixiJS with buiilt-in functions game animations and actions.
+In order to achieve the game's best performance it was important to use game engine APIs such as PixiJS with buiilt-in plugins, game animations and actions.
 
 ### Requirements of the game 
+This game is suitable for computers using a mouse. I tried to make it work for touch screens/mobile devices but my inexperience got me as far as shooting the bullets but not spinning. I would like to expand it to work with touch screen devices but due to time constraints I focused my efforts on making it work on desktops & laptops.
 
-**Game's Checklist**
-This is a list of things we need to achieve in the coding:
-* A canvas where the game is played (2D)
-* Instructions how to play the game
-* Game Components 
-* Game Engine or API
-* Score and timer 
+
+
 
 <a name="structure"></a>
 ## Game Structure
@@ -63,6 +59,16 @@ One of the first problem was to make the canvas responsive. I added `class` for 
 
 # Code Structure
 In order to achieve and understand the different parts comprising this project, I based my coding on this video tutorial https://www.youtube.com/watch?v=L07i4g-zhDA
+
+**Game's Checklist**
+This is a list of things we need to achieve in the coding:
+* A canvas where the game is played (2D)
+* Instructions how to play the game
+* Game Components 
+* Game Engine or API
+* Score and timer
+* Local Storage
+
 
 ### Collision of two sprites as killing action
 Now it's time to kill some birds! I understand that if I'm making the 2 components to collide for that we need to create the 2D axis.
@@ -128,6 +134,11 @@ I had to restructure my game to have my sprites, bullets and enemies that repeat
  **Solution**
  `console.log(counter);`
 
+ > Last Score null. When the site is running for the first time, "Last score" is showing null.
+ **Solution**
+ Checking if that variable had null value, and adding a string.
+ Declaration reference https://stackoverflow.com/questions/6003884/how-do-i-check-for-null-values-in-javascript/6003958
+
   Testing was constant from the beginning of my project. I used this section as a record of my coding studies.  
 
 <a name="references"></a>
@@ -166,3 +177,5 @@ https://github.com/pixijs/pixi-particles/blob/master/docs/examples/js/ParticleEx
 * Code logic: http://jsfiddle.net/88526/1/
 * Interaction events: http://pixijs.download/v4.3.4/docs/PIXI.interaction.InteractionEvent.html
 
+**Local storage**
+* https://stackoverflow.com/questions/47817325/storing-my-game-score-in-local-storage
