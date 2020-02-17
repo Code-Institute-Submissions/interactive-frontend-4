@@ -33,8 +33,6 @@ Next thing to achieve was the shooting action. I based mine on the coding soluti
 
 My next step was to get familiar with sprites which are large files with all images that you're using in your game. A JSON file was created as an atlas to find and cut the elemnt we're using without having to load all images as single instruction each time. On this game the JSON file was used to create the explosion effect when the birds are shot.
 
-* To generate my JSON file I used: https://www.codeandweb.com/free-sprite-sheet-packer
-
 ### Shooting
 To be able to shoot the zombies I had to trigger an event on the "bullet" or `zombomb` in this case, to solve this, I decided to translate this `<div id="zombomb">` on Y coordinates and another `function` to call it back to the original position. This was achieved with `animate` and the call back function to reset the animation.
 
